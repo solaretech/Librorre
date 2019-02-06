@@ -31,6 +31,9 @@
             <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
             <p><%= f.submit "更新", class:"btn" %></p>
             <div id="user-edit-cancel" class="btn">更新のキャンセル</div>
+            <div id="user-edit-cancel" class="btn btn-alert btn-below">
+              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch %>
+            </div>
           <% end %>
         </div>
 
