@@ -1,0 +1,2 @@
+class ArticleHistoriesController < ApplicationController
+end
