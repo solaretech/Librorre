@@ -1,0 +1,2 @@
+class StoryBody < ApplicationRecord
+end

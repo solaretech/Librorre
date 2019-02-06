@@ -1,0 +1,2 @@
+class StoryTopic < ApplicationRecord
+end
