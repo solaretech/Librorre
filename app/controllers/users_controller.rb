@@ -20,6 +20,14 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def unsubscribe
+    @user = User.find(params[:id])
+    @user.deleted_user = true
+    @user.save
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def user_params
