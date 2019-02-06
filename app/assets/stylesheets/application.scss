@@ -17,6 +17,57 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  width: 100%;
+  height: 60px;
+  padding: 5px 20px;
+  border-bottom : solid 2px #AAA;
+}
+
+.header-logo{
+  float: left;
+  margin: 0;
+  font-family: "economica","Meiryo","ヒラギノ角ゴ","sans-serif";
+  color: white;
+  background-color: #0B6138;
+  line-height: 50px
+}
+
+.header-nav{
+  float: right;
+}
+
+.header-nav-list{
+  float: left;
+  margin-right: 30px;
+}
+
+.header-nav-list:last-child{
+  margin-right: 0;
+}
+
+.header-nav-icon{
+  float: left;
+  margin: 5px 10px;
+}
+
+.header-nav-text{
+  float:left;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
+}
 
 .content-box{
   text-align: center;

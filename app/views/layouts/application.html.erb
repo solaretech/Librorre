@@ -10,6 +10,47 @@
   </head>
 
   <body>
+    <header class="clearfix">
+      <h1 class="header-logo">LiBRORRE</h1>
+
+      <% if user_signed_in? %>
+
+      <div class="header-nav">
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
+          <p class="header-nav-text">使い方</p>
+        </div>
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/library.png" alt="マイライブラリ" width="40" height="40">
+          <p class="header-nav-text">マイライブラリ</p>
+        </div>
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/story.png" alt="利用者" width="40" height="40">
+          <p class="header-nav-text"><%= current_user.name %>▼</p>
+        </div>
+      </div>
+
+      <% else %>
+
+      <div class="header-nav">
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
+          <p class="header-nav-text">使い方</p>
+        </div>
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/sign_up.png" alt="登録" width="40" height="40">
+          <p class="header-nav-text">登録</p>
+        </div>
+        <div class="header-nav-list">
+          <img class="header-nav-icon" src="/images/sign_in.png" alt="ログイン" width="40" height="40">
+          <p class="header-nav-text">ログイン</p>
+        </div>
+      </div>
+
+      <% end %>
+
+    </header>
     <%= yield %>
+
   </body>
 </html>
