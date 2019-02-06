@@ -16,3 +16,17 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.content-box{
+  text-align: center;
+  height: 600px;
+  margin: 5px;
+  border: double 1px #0B614B;
+  overflow: scroll;
+}
+
+.not-active{
+  opacity: 0;
+  background-color: #BDBDBD;
+}
