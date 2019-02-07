@@ -5,6 +5,9 @@
       <div class ="content-box user-info">
         <h2>利用者情報</h2>
         <div>
+          <div>
+            <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback:"/images/no_image.png" %>
+          </div>
           <h3><%= @user.name %></h3>
           <% if @user.id == current_user.id %>
             <p><%= @user.email %></p>
@@ -15,7 +18,6 @@
       </div>
     </div>
 
-    <!-- 編集ボタンクリック時に表示 -->
     <div class="content-area col-md-6">
       <div class ="content-box">
         <h2 class ="user-history">最近閲覧したストーリー</h2>
@@ -29,6 +31,7 @@
           <%= form_for(@user) do |f| %>
             <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
             <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
+            <%= f.attachment_field :image %>
             <p><%= f.submit "更新", class:"btn" %></p>
             <div id="user-edit-cancel" class="btn">更新のキャンセル</div>
             <div id="user-edit-cancel" class="btn btn-alert btn-below">

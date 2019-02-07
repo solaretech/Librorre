@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :article_histories
   has_many :stories
   has_many :libraries
+
+  attachment :image
 end
