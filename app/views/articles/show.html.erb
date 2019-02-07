@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class="content-box-head"><%= @article.title %></h2>
+        <div class="content-box-body">
+          <p>タグ：
+            <% @article.categories.each do |category| %>
+              <%= category.name %>
+            <% end %>
+          </p>
+          <h4>● 意味</h4>
+          <div>
+            <%= simple_format(@article.mean) %>
+          </div>
+          <h4>● 主な原因</h4>
+          <div>
+            <%= simple_format(@article.cause) %>
+          </div>
+        </div>
+        <div class="content-box-foot">
+          <div class="btn">エラー情報の編集</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class ="content-box-head">関連ストーリー</h2>
+        <div class="story-lists">
+          <% @stories.each do |story| %>
+            <div class="story-list clearfix">
+              <p><%= story.title %> / <%= story.user.name %></p>
+              <p>
+                <%= story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+                ライブラリ数：<%= story.libraries.count %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

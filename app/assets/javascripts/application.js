@@ -16,6 +16,8 @@
 //= require cocoon
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery-ui
+//= require tag-it
 //= require_tree .
 
 
