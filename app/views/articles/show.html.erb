@@ -28,7 +28,7 @@
     <div class="content-area col-md-6">
       <div class ="content-box">
         <h2 class ="content-box-head">関連ストーリー</h2>
-        <div class="story-lists">
+        <div class="content-box-body story-lists">
           <% @stories.each do |story| %>
             <div class="story-list clearfix">
               <p><%= story.title %> / <%= story.user.name %></p>

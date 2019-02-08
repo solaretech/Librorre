@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :stories, only:[:new, :create, :destroy]
   end
   resources :stories, only:[:show, :new, :edit, :create, :update, :destroy]
+  resources :categories, only:[:show]
   resources :article_histories, only:[:index, :show, :create]
   resources :libraries, only:[:index, :create, :destroy]
 

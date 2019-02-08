@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class="content-box-head">タグ：<%= @category.name %>を含むエラー記事</h2>
+        <div class="content-box-body article-lists">
+          <% @category.articles.each do |article| %>
+            <div class="article-list clearfix">
+              <p><%= article.title %></p>
+              <p><%= article.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="content-box-foot">
+          <div class="btn"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class ="content-box-head">タグ：<%= @category.name %>を含むストーリー</h2>
+        <div class="content-box-body story-lists">
+          <% @category.stories.each do |story| %>
+            <div class="story-list clearfix">
+              <p><%= story.title %> / <%= story.user.name %></p>
+              <p>
+                <%= story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+                ライブラリ数：<%= story.libraries.count %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
