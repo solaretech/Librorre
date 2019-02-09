@@ -29,6 +29,7 @@
       <div class ="content-box">
         <h2 class ="content-box-head">関連ストーリー</h2>
         <div class="content-box-body story-lists">
+          <p><%= link_to "ストーリーの追加", new_article_stories_path(@article) %></p>
           <% @stories.each do |story| %>
             <div class="story-list clearfix">
               <p><%= story.title %> / <%= story.user.name %></p>

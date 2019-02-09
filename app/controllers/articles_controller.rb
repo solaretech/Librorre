@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
     article.user_id = current_user.id
     category_list = params[:category_list].split(",")
     article.save
-    article.save_categories(category_list)
+    article.save_article_categories(category_list)
     redirect_to article_path(article)
   end
 

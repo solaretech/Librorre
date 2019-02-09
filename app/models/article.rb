@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   has_many :stories
   has_many :artist_histories, dependent: :destroy
 
-  def save_categories(tags)
+  def save_article_categories(tags)
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
