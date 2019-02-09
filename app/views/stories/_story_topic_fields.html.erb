@@ -1,0 +1,13 @@
+<div>
+  <h5>見出し：<%= f.text_field :title, placeholder:"見出しを入力" %></h5>
+  <%= link_to_remove_association "見出しの削除", f %>
+</div>
+
+<div>
+  <%= f.fields :story_bodies do |body| %>
+    <%= render 'story_body_fields',f: body %>
+  <% end %>
+  <div>
+    <%= link_to_add_association "本文・コードの追加", f, :story_bodies %>
+  </div>
+</div>

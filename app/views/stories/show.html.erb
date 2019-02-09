@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class="content-box-head"><%= @story.article.title %>に関するストーリー</h2>
+        <div class="content-box-body">
+          <h3><%= @story.title %></h3>
+          <p>タグ：
+            <% @story.categories.each do |category| %>
+              <%= link_to category.name, category_path(category) %>
+            <% end %>
+          </p>
+          <% @topics.each do |topic| %>
+            <h4><%= topic.title %></h4>
+            <% topic.story_bodies.each do |body| %>
+            <div>
+              <%= simple_format(body.content) %>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="content-box-foot">
+          <div class="btn"><%= link_to "ストーリーの編集", edit_story_path(@story) %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class ="content-box-head">関連ストーリー</h2>
+        <div class="content-box-body story-lists">
+          <p><%= link_to "ストーリーの追加", new_article_stories_path(@article) %></p>
+          <% @stories.each do |story| %>
+            <div class="story-list clearfix">
+              <p><%= story.title %> / <%= story.user.name %></p>
+              <p>
+                <%= story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+                ライブラリ数：<%= story.libraries.count %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
