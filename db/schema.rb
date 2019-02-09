@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_140650) do
+ActiveRecord::Schema.define(version: 2019_02_09_130446) do
 
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_140650) do
   create_table "story_bodies", force: :cascade do |t|
     t.integer "story_topic_id"
     t.text "content"
-    t.integer "type"
+    t.integer "text_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
