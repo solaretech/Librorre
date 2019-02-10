@@ -29,7 +29,7 @@ header{
   width: 100%;
   height: 60px;
   padding: 5px 20px;
-  border-bottom : solid 2px #AAA;
+  border-bottom: solid 1px #D8D8D8;
   margin-bottom: 20px;
 }
 
@@ -80,7 +80,7 @@ header{
 .content-box{
   padding: 20px;
   height: 725px;
-  border: double 1px #0B614B;
+  border: solid 1px #D8D8D8;
   overflow: scroll;
   position: relative;
   box-shadow: 5px 5px 10px #A4A4A4;
