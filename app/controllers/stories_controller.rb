@@ -14,6 +14,8 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @story = Story.find(params[:id])
+    @category_list = @story.categories.pluck(:name).join(",")
   end
 
   def create
@@ -21,9 +23,17 @@ class StoriesController < ApplicationController
     story = article.stories.new(story_params)
     story.user_id = current_user.id
     category_list = params[:category_list].split(",")
-    story.save!
+    story.save
     story.save_story_categories(category_list)
     redirect_to story_path(story.id)
+  end
+
+  def update
+    story = Story.find(params[:id])
+    category_list = params[:category_list].split(",")
+    story.update(story_params)
+    story.save_story_categories(category_list)
+    redirect_to story_path(story)
   end
 
   private
