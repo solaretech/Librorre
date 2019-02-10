@@ -17,7 +17,11 @@
             <h4>- 原因</h4>
             <%= f.text_area :cause, class:"body-textarea" %>
             <div class="content-box-foot">
-              <%= link_to "戻る", article_path(@article), class: "btn" %><%= f.submit "保存", class: "btn" %>
+              <%= link_to "戻る", article_path(@article), class: "btn" %>
+              <%= f.submit "保存", class: "btn" %>
+              <% if current_user.admin == true %>
+                <%= link_to "記事の削除", article_path(@article), method: :delete, class: "btn btn-danger" %>
+              <% end %>
             </div>
           <% end %>
         </div>

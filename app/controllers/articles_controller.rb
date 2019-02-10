@@ -24,6 +24,15 @@ class ArticlesController < ApplicationController
 
   def update
     article= Article.find(params[:id])
+    # article_historyに編集履歴を追加
+    history = ArticleHistory.new
+    history.article_id = article.id
+    history.user_id = current_user.id
+    history.title = article.title
+    history.mean = article.mean
+    history.cause = article.cause
+    history.save
+    # articleの更新
     category_list = params[:category_list].split(",")
     article.update(article_params)
     article.save_article_categories(category_list)
