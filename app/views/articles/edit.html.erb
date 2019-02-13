@@ -5,16 +5,17 @@
         <h2 class="content-box-head">項目の編集</h2>
         <div class="content-box-body">
           <%= form_for(@article) do |f| %>
-          <h4><%= f.text_field :title, placeholder: "エラー名を入力" %></h4>
+          <h5>エラー名：
+          <%= f.text_field :title, placeholder: "エラー名を入力" %></h5>
             <div class="tag-list">
               タグ：
                 <ul id="article-tags">
                 </ul>
                 <%= hidden_field_tag :category_hidden,@category_list %>
             </div>
-            <h4>- 意味</h4>
+            <h5>- 意味</h5>
             <%= f.text_area :mean, class:"body-textarea" %>
-            <h4>- 原因</h4>
+            <h5>- 原因</h5>
             <%= f.text_area :cause, class:"body-textarea" %>
             <div class="content-box-foot">
               <%= link_to "戻る", article_path(@article), class: "btn" %>
