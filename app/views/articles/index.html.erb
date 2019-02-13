@@ -1,0 +1,23 @@
+<div class="container" >
+  <div class="row">
+   <div id="content-left" class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class="content-box-head">検索結果(エラー)</h2>
+        <div class="content-box-body">
+          <%= render '/articles/article_list', articles: @articles %>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-right" class="content-area col-md-6">
+      <div class ="content-box">
+        <h2 class ="content-box-head">検索結果(ストーリー)</h2>
+        <div class="content-box-body story-lists">
+          <%= render '/stories/story_list', stories: @stories %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

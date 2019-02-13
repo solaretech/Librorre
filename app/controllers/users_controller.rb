@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def top
+    @article = Article.new
+    @articles = Article.where(activated: true).page(params[:page]).per(10).search(params[:search])
+    @stories = Story.where(activated: true).page(params[:page]).per(10).search(params[:search])
   end
 
   def about

@@ -10,6 +10,14 @@ class Story < ApplicationRecord
   belongs_to :user
   belongs_to :article
 
+  def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
   def save_story_categories(tags)
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
     old_tags = current_tags - tags
@@ -25,6 +33,10 @@ class Story < ApplicationRecord
       article_category = Category.find_or_create_by(name:new_name)
       self.categories << article_category
     end
+  end
+
+  def added_to_library?(user)
+    libraries.where(user_id: user.id).exists?
   end
 
 end

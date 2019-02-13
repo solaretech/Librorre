@@ -3,6 +3,11 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def index
+    @articles = Article.page(params[:page]).per(5).search(params[:search])
+    @stories = Story.page(params[:page]).per(5).search(params[:search])
+  end
+
   def show
     @article = Article.find(params[:id])
     @stories = @article.stories.all

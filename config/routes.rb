@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :index, :edit, :update]
   resources :articles, only:[:show, :index, :new, :edit, :create, :update, :destroy] do
     resource :stories, only:[:new, :create, :destroy]
+    resource :article_histories, only:[:index, :show]
   end
-  resources :stories, only:[:show, :new, :edit, :create, :update, :destroy]
+  resources :stories, only:[:show, :new, :edit, :create, :update, :destroy] do
+    resource :libraries, only:[:create, :destroy]
+  end
   resources :categories, only:[:show]
   resources :article_histories, only:[:index, :show, :create]
   resources :libraries, only:[:index, :create, :destroy]

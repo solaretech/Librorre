@@ -4,6 +4,14 @@ class Article < ApplicationRecord
   has_many :stories
   has_many :artist_histories, dependent: :destroy
 
+  def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
   def save_article_categories(tags)
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
     old_tags = current_tags - tags
@@ -20,4 +28,5 @@ class Article < ApplicationRecord
       self.categories << article_category
     end
   end
+
 end

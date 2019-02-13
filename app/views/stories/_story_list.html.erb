@@ -1,0 +1,9 @@
+<% stories.each do |story| %>
+  <div class="story-list clearfix">
+    <p><%= link_to story.title, story_path(story) %> / <%= link_to story.user.name, user_path(story.user) %></p>
+    <p>
+      <%= story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+      ライブラリ登録数：<%= story.libraries.count %>
+    </p>
+  </div>
+<% end %>
