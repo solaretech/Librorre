@@ -1,0 +1,9 @@
+  $('#more-articles').click(function(){
+    $('#articles').append("<%= escape_javascript(render '/articles/article_list', articles: @articles) %>");
+    $('this').replaceWith("<%= escape_javascript(link_to_next_page @articles, 'さらに10件表示', remote: true, id: more-articles) %>");
+  });
+
+  $('#more-stories').click(function(){
+    $('#stories').append("<%= escape_javascript(render '/stories/story_list', storiess: @stories) %>");
+    $('this').replaceWith("<%= escape_javascript(link_to_next_page @stories, 'さらに10件表示', remote: true, id: more-stories) %>");
+  });
