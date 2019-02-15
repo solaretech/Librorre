@@ -4,8 +4,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.page(params[:page]).per(5).search(params[:search])
-    @stories = Story.page(params[:page]).per(5).search(params[:search])
+    @articles = Article.page(params[:page]).per(10).search(params[:search])
+    @stories = Story.page(params[:page]).per(10).search(params[:search])
   end
 
   def show
