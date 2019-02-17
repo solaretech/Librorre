@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'users#top'
+  get '/about' => 'users#about', as: 'about'
+  get '/article/:id/histories' => 'article_histories#index', as: 'article_histories'
+  get '/article_histories/:id' => 'article_histories#show', as: 'article_history'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -7,14 +10,13 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :index, :edit, :update]
   resources :articles, only:[:show, :index, :new, :edit, :create, :update, :destroy] do
     resource :stories, only:[:new, :create, :destroy]
-    resource :article_histories, only:[:index, :show]
   end
   resources :stories, only:[:show, :new, :edit, :create, :update, :destroy] do
     resource :libraries, only:[:create, :destroy]
   end
   resources :categories, only:[:show]
-  resources :article_histories, only:[:index, :show, :create]
   resources :libraries, only:[:index, :create, :destroy]
 
   patch 'users/d/:id' => 'users#unsubscribe', as: 'unsubscribe_user'
+  patch 'articles/ow/:id' => 'article_histories#overwrite', as: 'overwrite_article'
 end
