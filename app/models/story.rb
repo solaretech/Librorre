@@ -11,6 +11,8 @@ class Story < ApplicationRecord
   belongs_to :user
   belongs_to :article
 
+  validates :title, presence: true, length:{maximum: 50}
+
   def self.search(search)
     if search
       where(['title LIKE ?', "%#{search}%"])

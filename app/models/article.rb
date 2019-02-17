@@ -4,6 +4,8 @@ class Article < ApplicationRecord
   has_many :stories
   has_many :article_histories, dependent: :destroy
 
+  validates :title, presence: true, length:{maximum: 50}
+
   def self.search(search)
     if search
       where(['title LIKE ?', "%#{search}%"])

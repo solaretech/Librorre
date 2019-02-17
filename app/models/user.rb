@@ -9,5 +9,8 @@ class User < ApplicationRecord
   has_many :libraries, dependent: :destroy
   has_many :visiteds, dependent: :destroy
 
+  validates :name, presence: true, length:{maximum: 20}
+  validates :email, presence: true, length:{maximum: 50}
+
   attachment :image
 end
