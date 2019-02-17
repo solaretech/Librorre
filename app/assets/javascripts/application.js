@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require jquery-ui
 //= require tag-it
@@ -22,6 +21,12 @@
 
 
 $(function(){
+  $('#user-menu').hover(function(){
+    $('#user-menu-topics').slideDown()
+  },function(){
+    $('#user-menu-topics').slideUp()
+  });
+
   $('#user-edit').click(function(){
     $('.user-history').fadeOut(500);
     $(this).fadeOut();
@@ -37,4 +42,5 @@ $(function(){
     $('.user-history').delay(500).fadeIn(500);
     $('#user-edit').delay(500).fadeIn(500);
   });
+
 });

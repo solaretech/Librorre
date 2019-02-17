@@ -25,8 +25,17 @@
   box-sizing: border-box;
 }
 
+a{
+  color: black;
+}
+
+li{
+  list-style: none;
+}
+
 header{
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   height: 60px;
   padding: 5px 20px;
   border-bottom: solid 1px #D8D8D8;
@@ -41,6 +50,11 @@ header{
   background-color: #0B6138;
   line-height: 50px
 }
+
+.header-search{
+  float: left;
+}
+
 
 .header-nav{
   float: right;
@@ -100,7 +114,13 @@ header{
 .content-box-foot{
   position: absolute;
   bottom: 5px;
+  width: 95%;
   margin: 0 auto;
+}
+
+.foot-right{
+  float: right;
+  padding: 6px;
 }
 
 .body-textarea{
@@ -108,3 +128,27 @@ header{
   height: 240px;
 }
 
+#user-menu > ul{
+  position: relative;
+}
+#user-menu-topics{
+  display: none;
+  width: 175%;
+  position: absolute;
+  border: solid 1px #A4A4A4;
+  padding: 10px;
+  background-color: white;
+}
+
+#more-articles, #more-stories{
+  background-color: #088A68;
+  padding: 0;
+  margin :5px auto;
+  width :100%;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+
+}
