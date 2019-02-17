@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+<div id="library-edit">
+  <% if story.added_to_library?(current_user) %>
+    <%= render '/libraries/remove', story: @story %>
+  <% else %>
+    <%= render '/libraries/add', story: @story %>
+  <% end %>
+<% end %>
+</div>
