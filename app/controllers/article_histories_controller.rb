@@ -1,5 +1,5 @@
 class ArticleHistoriesController < ApplicationController
-  # update実行前に、記事の編集履歴を作成
+  before_action :auth_admin
 
   def index
     @article = Article.find(params[:id])
@@ -14,6 +14,7 @@ class ArticleHistoriesController < ApplicationController
   def overwrite
     history = ArticleHistory.find(params[:id])
     @article = history.article
+    # overwrite実行前に、記事の編集履歴を作成
     create_article_history
     # article_historyの内容をarticleへ上書き
     @article.title = history.title

@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:update, :unsubscribe]
+
   def top
     @article = Article.new
-    @articles = Article.where(activated: true).page(params[:page]).per(10).search(params[:search])
-    @stories = Story.where(activated: true).page(params[:page]).per(10).search(params[:search])
+    @articles = Article.page(params[:page]).per(10)
+    @stories = Story.page(params[:page]).per(10)
   end
 
   def about

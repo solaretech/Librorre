@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+
   def new
     @article = Article.find(params[:article_id])
     @story = @article.stories.new
