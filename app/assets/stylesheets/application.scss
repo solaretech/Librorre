@@ -23,6 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  word-break : break-all;
 }
 
 a{
@@ -128,6 +129,30 @@ header{
   height: 240px;
 }
 
+.btn{
+  background-color: #088A68;
+  color: white;
+}
+
+.btn:hover{
+  background-color: #01DFA5;
+}
+
+.btn-wide{
+  width: 90%;
+  float: none;
+  margin: 10px auto;
+}
+
+.btn-sub, .btn-sub > a{
+  background-color: #8A4B08;
+  color: white;
+}
+
+.btn-sub:hover, .btn-sub > a:hover{
+  background-color: #DBA901;
+}
+
 #user-menu > ul{
   position: relative;
 }
@@ -140,7 +165,7 @@ header{
   background-color: white;
 }
 
-#more-articles, #more-stories{
+#more-articles, #more-stories, #more-stocks{
   background-color: #088A68;
   padding: 0;
   margin :5px auto;
