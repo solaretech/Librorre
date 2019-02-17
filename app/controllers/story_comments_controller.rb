@@ -1,0 +1,2 @@
+class StoryCommentsController < ApplicationController
+end
