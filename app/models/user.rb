@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :article_histories
-  has_many :stories
-  has_many :libraries
-  has_many :visiteds
+  has_many :article_histories, dependent: :destroy
+  has_many :stories, dependent: :destroy
+  has_many :libraries, dependent: :destroy
+  has_many :visiteds, dependent: :destroy
 
   attachment :image
 end
