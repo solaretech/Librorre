@@ -10,6 +10,7 @@
               タグ：
                 <ul id="story-tags">
                 </ul>
+                <%= hidden_field_tag :category_hidden,@category_list %>
             </div>
             <div>
               <%= f.fields_for :story_topics do |topic| %>

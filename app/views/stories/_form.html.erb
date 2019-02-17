@@ -1,0 +1,26 @@
+<%= form_for @story do |f| %>
+  <h4><%= f.text_field :title, placeholder: "ストーリー名を入力" %></h4>
+  <div class="tag-list">
+    タグ：
+      <ul id="story-tags">
+      </ul>
+      <%= hidden_field_tag :category_hidden,@category_list %>
+  </div>
+  <div>
+    <%= f.fields_for :story_topics do |topic| %>
+      <div>
+        <%= render 'story_topic_fields', f: topic %>
+      </div>
+    <% end %>
+    <div>
+      <%= link_to_add_association '見出しの追加',f, :story_topics %>
+    </div>
+  </div>
+
+  <div class="content-box-foot">
+    <%= link_to "戻る", story_path(@story), class: "btn" %><%= f.submit "保存", class: "btn" %>
+    <% if @story.user == current_user %>
+      <%= link_to "ストーリーの削除", story_path(@story), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+<% end %>
