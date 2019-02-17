@@ -20,10 +20,16 @@
           </div>
         </div>
         <div class="content-box-foot">
-          <div class="btn">
-            <%= link_to "エラー情報の編集", edit_article_path(@article) %>
+          <div>
+            <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn" %>
           </div>
-          <div>最終更新：<%= link_to @article.updated_at, article_histories_path %></div>
+          <div>最終更新：
+            <% if current_user.admin == true %>
+              <%= link_to @article.updated_at, article_histories_path %>
+            <% else %>
+              <%= @article.updated_at %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
