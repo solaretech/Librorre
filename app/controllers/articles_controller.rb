@@ -1,7 +1,4 @@
 class ArticlesController < ApplicationController
-  # update実行前に、記事の編集履歴を作成
-  before_action :create_article_history, only:[:update]
-
   def new
     @article = Article.new
   end
@@ -33,10 +30,10 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     create_article_history
+    @article.update(article_params)
     category_list = params[:category_list].split(",")
-    article.update(article_params)
-    article.save_article_categories(category_list)
-    redirect_to article_path(article)
+    @article.save_article_categories(category_list)
+    redirect_to article_path(@article)
   end
 
   private
