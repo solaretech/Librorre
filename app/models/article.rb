@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
   has_many :stories
-  has_many :artist_histories, dependent: :destroy
+  has_many :article_histories, dependent: :destroy
 
   def self.search(search)
     if search
