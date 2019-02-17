@@ -28,20 +28,18 @@ $(function(){
     $('#user-menu-topics').slideUp()
   });
 
-  $('#user-edit').click(function(){
-    $('.user-history').fadeOut(500);
+  $('#sub-content-show').click(function(){
+    $('#main-content').fadeOut(500);
     $(this).fadeOut();
-    $('.user-info').animate({opacity: 0.2}, 500);
-    $('.user-edit').delay(500).fadeIn(500);
-    $('#user-edit-cancel').delay(500).fadeIn(500);
+    $('#sub-content').delay(500).fadeIn(500);
+    $('#sub-content-hide').delay(500).fadeIn(500);
   });
 
-  $('#user-edit-cancel').click(function(){
-    $('.user-edit').fadeOut(500);
+  $('#sub-content-hide').click(function(){
+    $('#sub-content').fadeOut(500);
     $(this).fadeOut();
-    $('.user-info').animate({opacity: 1}, 500);
-    $('.user-history').delay(500).fadeIn(500);
-    $('#user-edit').delay(500).fadeIn(500);
+    $('#main-content').delay(500).fadeIn(500);
+    $('#sub-content-show').delay(500).fadeIn(500);
   });
 
 });
