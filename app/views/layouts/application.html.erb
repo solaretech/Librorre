@@ -25,16 +25,26 @@
 
       <div class="header-nav">
         <div class="header-nav-list">
-          <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
-          <p class="header-nav-text">使い方</p>
+          <%= link_to(about_path) do %>
+            <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
+            <p class="header-nav-text">使い方</p>
+          <% end %>
         </div>
         <div class="header-nav-list">
-          <img class="header-nav-icon" src="/images/library.png" alt="マイライブラリ" width="40" height="40">
-          <p class="header-nav-text">マイライブラリ</p>
+          <%= link_to(libraries_path) do %>
+            <img class="header-nav-icon" src="/images/library.png" alt="マイライブラリ" width="40" height="40">
+            <p class="header-nav-text">マイライブラリ</p>
+          <% end %>
         </div>
-        <div class="header-nav-list">
+        <div id="user-menu" class="header-nav-list">
           <img class="header-nav-icon" src="/images/story.png" alt="利用者" width="40" height="40">
-          <p class="header-nav-text"><%= current_user.name %> ▼</p>
+          <ul class="header-nav-text">
+            <li><%= current_user.name %> ▼</li>
+            <ul id="user-menu-topics">
+              <li><%= link_to '利用者情報', user_path(current_user) %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </ul>
         </div>
       </div>
 
@@ -42,16 +52,22 @@
 
       <div class="header-nav">
         <div class="header-nav-list">
-          <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
-          <p class="header-nav-text">使い方</p>
+          <%= link_to(about_path) do %>
+            <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
+            <p class="header-nav-text">使い方</p>
+          <% end %>
         </div>
         <div class="header-nav-list">
-          <img class="header-nav-icon" src="/images/sign_up.png" alt="登録" width="40" height="40">
-          <p class="header-nav-text">登録</p>
+          <%= link_to(new_user_registration_path) do %>
+            <img class="header-nav-icon" src="/images/sign_up.png" alt="登録" width="40" height="40">
+            <p class="header-nav-text">登録</p>
+          <% end %>
         </div>
         <div class="header-nav-list">
-          <img class="header-nav-icon" src="/images/sign_in.png" alt="ログイン" width="40" height="40">
-          <p class="header-nav-text">ログイン</p>
+          <%= link_to(new_user_session_path) do %>
+            <img class="header-nav-icon" src="/images/sign_in.png" alt="ログイン" width="40" height="40">
+            <p class="header-nav-text">ログイン</p>
+          <% end %>
         </div>
       </div>
 
