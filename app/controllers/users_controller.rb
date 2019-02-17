@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @libraries = @user.libraries.count
+    @visiteds = @user.visiteds.reverse
   end
 
   def edit

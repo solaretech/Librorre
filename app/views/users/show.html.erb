@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="content-area col-md-6">
+    <div id="content-left" class="content-area col-md-6">
       <div class ="content-box">
         <h2 class="content-box-head user-info">利用者情報</h2>
         <div class="content-box-body user-info">
@@ -20,11 +20,19 @@
       </div>
     </div>
 
-    <div class="content-area col-md-6">
+    <div id="content-right" class="content-area col-md-6">
       <div class ="content-box">
         <h2 class ="content-box-head user-history">最近閲覧したストーリー</h2>
         <div class="user-history">
-          リスト追加予定
+          <% @visiteds.each do |visited| %>
+            <div class="story-list clearfix">
+              <p><%= link_to visited.story.title, story_path(visited.story) %> / <%= link_to visited.story.user.name, user_path(visited.story.user) %></p>
+              <p>
+                <%= visited.story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+                ライブラリ登録数：<%= visited.story.libraries.count %>
+              </p>
+            </div>
+          <% end %>
         </div>
 
       <!-- 編集ボタンクリック時に表示 -->
