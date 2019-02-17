@@ -1,5 +1,6 @@
 <% articles.each do |article| %>
   <div class="article-list clearfix">
-    <p><%= link_to article.title, article_path(article) %> / <%= article.updated_at %></p>
+    <h4><%= link_to article.title, article_path(article) %></h4>
+    <p><%= article.updated_at %></p>
   </div>
 <% end %>
