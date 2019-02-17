@@ -10,6 +10,35 @@
 
 }
 
+.comment-list{
+  width: 100%;
+  padding: 10px;
+  border-bottom: solid 1px #BDBDBD;
+}
+
+.comment-list:hover{
+  background-color: #E0F8EC;
+}
+
+.comment-list:last-child{
+  width: 100%;
+  border-bottom: none;
+}
+
+.comment-user-thumb{
+  float: left;
+  margin: 6px;
+}
+
+.comment-user-text{
+  float: left;
+  width: 70%;
+}
+
+.comment-user-name{
+  font-weight: bold;
+}
+
 .story-list-user-thumb{
   float: left;
 }

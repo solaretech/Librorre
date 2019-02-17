@@ -13,6 +13,8 @@ class StoriesController < ApplicationController
     @article = @story.article                     # 選択したストーリーに関連するエラー記事
     @stories = Story.page(params[:page]).per(10)  # 同一エラーに関するストーリー
     @topics = @story.story_topics                 # 見出し
+    @story_comments = @story.story_comments.reverse
+    @story_comment = StoryComment.new
     logging_visited_stories(@story)               # 閲覧履歴の記録
   end
 

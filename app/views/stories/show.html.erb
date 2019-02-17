@@ -3,7 +3,9 @@
 
     <div id="content-left" class="content-area col-md-6">
       <div class ="content-box">
-        <h2 class="content-box-head"><%= @story.title %></h2>
+        <h2 class="content-box-head">
+          <%= @story.title %>
+        </h2>
         <div class="content-box-body">
           <p>リソース：<%= link_to @story.article.title, article_path(@story.article) %></p>
           <p>タグ：
@@ -29,8 +31,14 @@
           <% end %>
         </div>
         <div class="content-box-foot">
-          <div class="btn">
+          <div class="btn foot-left">
             <%= link_to "ストーリーの編集", edit_story_path(@story) %>
+          </div>
+          <div id="sub-content-show" class="btn btn-sub2 foot-left">
+            <img src="/images/comment.png" alt="コメント" width="16" height="16"> コメント
+          </div>
+          <div id="sub-content-hide" class="btn btn-sub2 foot-left">
+            <img src="/images/comment.png" alt="コメント" width="16" height="16">  非表示
           </div>
           <div id="library-btn-<%= @story.id %>" class="foot-right">
             <!-- ライブラリ登録 -->
@@ -42,17 +50,34 @@
 
     <div id="content-right" class="content-area col-md-6">
       <div class ="content-box">
-        <h2 class ="content-box-head">関連ストーリー</h2>
-        <div class="content-box-body story-lists">
-          <p><%= link_to "ストーリーの追加", new_article_stories_path(@article) %></p>
-          <%= render '/stories/story_list', stories: @stories %>
+        <div id="main-content">
+          <h2 class ="content-box-head">関連ストーリー</h2>
+          <div class="content-box-body story-lists">
+            <p><%= link_to "ストーリーの追加", new_article_stories_path(@article) %></p>
+            <%= render '/stories/story_list', stories: @stories %>
+          </div>
+          <% if @stories.next_page %>
+            <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
+            <div id="more-stories" class="content-box-foot btn">
+              <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
+            </div>
+          <% end %>
         </div>
-        <% if @stories.next_page %>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <div id="more-stories" class="content-box-hoot btn">
-          <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
+
+        <div id="sub-content">
+          <h2 class ="content-box-head">コメント</h2>
+          <div id="comment-submit-<%= @story.id %>" class="content-box-body">
+            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
+          </div>
+            <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
+          <div class="content-box-foot">
+            <%= form_for([@story, @story_comment], remote: true) do |f| %>
+            <%= f.text_area :comment, class:'foot-textarea' %>
+            <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
+            <% end %>
+          </div>
         </div>
-        <% end %>
+
       </div>
     </div>
 
