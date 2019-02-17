@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
   resources :stories, only:[:show, :new, :edit, :create, :update, :destroy] do
     resource :libraries, only:[:create, :destroy]
+    resource :story_comments, only:[:create]
   end
+  resources :story_comments, only:[:destroy]
   resources :categories, only:[:show]
   resources :libraries, only:[:index, :create, :destroy]
 
