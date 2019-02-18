@@ -32,7 +32,7 @@
             <div class="user-history">
               <% @visiteds.each do |visited| %>
                 <div class="story-list clearfix">
-                  <p><%= link_to visited.story.title, story_path(visited.story) %> / <%= link_to visited.story.user.name, user_path(visited.story.user) %></p>
+                  <h4><%= link_to visited.story.title, story_path(visited.story) %> / <%= link_to visited.story.user.name, user_path(visited.story.user) %></h4>
                   <p>
                     <%= visited.story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
                     ライブラリ登録数：<%= visited.story.libraries.count %>

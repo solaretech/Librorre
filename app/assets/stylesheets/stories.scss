@@ -2,25 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.code{
+  border-radius: 5px;
+  background-color: #0B614B;
+  color: #F7F2E0;
+  padding: 10px;
+  margin: 10px 10px;
+}
+
 .story-lists{
 
 }
 
-.story-list{
-
-}
-
-.comment-list{
+.story-list, .comment-list{
   width: 100%;
   padding: 10px;
   border-bottom: solid 1px #BDBDBD;
 }
 
-.comment-list:hover{
-  background-color: #E0F8EC;
+.story-list:hover, .comment-list:hover{
+  background-color: #FAFAFA;
 }
 
-.comment-list:last-child{
+.story-list:last-child, .comment-list:last-child{
   width: 100%;
   border-bottom: none;
 }
