@@ -34,6 +34,8 @@ li{
   list-style: none;
 }
 
+/* ヘッダーメニュー */
+
 header{
   width: 95%;
   margin: 0 auto;
@@ -87,6 +89,8 @@ header{
   clear: both;
   display: block;
 }
+
+/* コンテンツエリア */
 
 .content-area{
   padding: 0 10px;
@@ -148,6 +152,8 @@ header{
   resize: none;
 }
 
+/* ボタン */
+
 .btn{
   background-color: #088A68;
   color: white;
@@ -187,6 +193,7 @@ header{
 #user-menu > ul{
   position: relative;
 }
+
 #user-menu-topics{
   display: none;
   width: 175%;
@@ -194,6 +201,7 @@ header{
   border: solid 1px #A4A4A4;
   padding: 10px;
   background-color: white;
+  z-index: 9;
 }
 
 #more-articles, #more-stories, #more-stocks{
@@ -210,4 +218,43 @@ header{
 
 #sub-content, #sub-content-hide{
   display: none;
+}
+
+/* フラッシュメッセージ */
+
+#flash{
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 0;
+  line-height: 48px;
+  height: 48px;
+  position: absolute;
+  float: left;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.success {
+  background-color: #58ACFA;
+}
+
+.alert {
+  background-color: red;
+}
+
+.alert-devise h2{
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.alert-devise li{
+  color: red;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  padding: 0;
 }

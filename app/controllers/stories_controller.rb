@@ -24,28 +24,43 @@ class StoriesController < ApplicationController
   end
 
   def create
-    article = Article.find(params[:article_id])
-    story = article.stories.new(story_params)
-    story.user_id = current_user.id
-    category_list = params[:category_list].split(",")
-    story.save
-    story.save_story_categories(category_list)
-    redirect_to story_path(story.id)
+    @article = Article.find(params[:article_id])
+    @story = @article.stories.new(story_params)
+    @story.user_id = current_user.id
+    if @story.save
+      category_list = params[:category_list].split(",")
+      @story.save_story_categories(category_list)
+      redirect_to story_path(@story), success: 'ストーリーを作成しました。'
+    else
+      @story_topic = @story.story_topics.build
+      @story_body = @story_topic.story_bodies.build
+      flash.now[:alert] = 'ストーリーの作成に失敗しました。'
+      render :new
+    end
   end
 
   def update
-    story = Story.find(params[:id])
-    story.update(story_params)
-    category_list = params[:category_list].split(",")
-    story.save_story_categories(category_list)
-    redirect_to story_path(story)
+    @story = Story.find(params[:id])
+    @category_list = params[:category_list].split(",")
+    if @story.update(story_params)
+      @story.save_story_categories(category_list)
+      redirect_to story_path(@story), success: 'ストーリーを更新しました'
+    else
+      flash.now[:alert] = 'ストーリーの更新に失敗しました。'
+      render :edit
+    end
   end
 
   def destroy
-    story = Story.find(params[:id])
+    @story = Story.find(params[:id])
     article = story.article
-    story.destroy
-    redirect_to article_path(article)
+    if story.destroy
+      redirect_to article_path(article), success: 'ストーリーを削除しました'
+    else
+      @category_list = params[:category_list].split(",")
+      flash.now[:alert] = 'ストーリーの更新に失敗しました。'
+      render :edit
+    end
   end
 
   private

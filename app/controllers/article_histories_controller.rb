@@ -15,7 +15,7 @@ class ArticleHistoriesController < ApplicationController
     history = ArticleHistory.find(params[:id])
     @article = history.article
     # overwrite実行前に、記事の編集履歴を作成
-    create_article_history
+    create_article_history(@article)
     # article_historyの内容をarticleへ上書き
     @article.title = history.title
     @article.mean = history.mean
