@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def create_article_history
+  def create_article_history(old_article)
     @new_history = ArticleHistory.new
-    @new_history.article_id = @article.id
+    @new_history.article_id = old_article.id
     @new_history.user_id = current_user.id
-    @new_history.title = @article.title
-    @new_history.mean = @article.mean
-    @new_history.cause = @article.cause
+    @new_history.title = old_article.title
+    @new_history.mean = old_article.mean
+    @new_history.cause = old_article.cause
     @new_history.save
   end
 

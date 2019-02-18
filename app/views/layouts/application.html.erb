@@ -10,6 +10,12 @@
   </head>
 
   <body>
+
+  <!-- フラッシュメッセージ -->
+    <div id="flash-messages">
+      <%= render partial: '/layouts/flash', locals:{flash: flash} %>
+    </div>
+
     <header class="clearfix">
       <h1 class="header-logo">LiBRORRE</h1>
       <div class="header-search">

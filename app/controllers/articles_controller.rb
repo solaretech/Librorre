@@ -20,21 +20,30 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.new(article_params)
-    article.user_id = current_user.id
+    @article = Article.new(article_params)
+    @article.user_id = current_user.id
     category_list = params[:category_list].split(",")
-    article.save
-    article.save_article_categories(category_list)
-    redirect_to article_path(article)
+    if @article.save
+      @article.save_article_categories(category_list)
+      redirect_to article_path(@article), success: 'エラー記事を作成しました。'
+    else
+      flash.now[:alert] = 'エラー記事の作成に失敗しました'
+      render :new
+    end
   end
 
   def update
     @article = Article.find(params[:id])
-    create_article_history
-    @article.update(article_params)
-    category_list = params[:category_list].split(",")
-    @article.save_article_categories(category_list)
-    redirect_to article_path(@article)
+    @old_article = @article
+    if @article.update(article_params)
+      create_article_history(@old_article)
+      category_list = params[:category_list].split(",")
+      @article.save_article_categories(category_list)
+      redirect_to article_path(@article), success: 'エラー記事を更新しました。'
+    else
+      flash.now[:alert] = 'エラー記事の更新に失敗しました'
+      render :edit
+    end
   end
 
   private

@@ -21,14 +21,14 @@ class UsersController < ApplicationController
     @users = User.order(:created_at).reverse_order.search(params[:search])
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user), success: '利用者情報を更新しました。'
+    else
+      flash.now[:alert] = '利用者情報の更新に失敗しました。'
+      render :show
+    end
   end
 
   def unsubscribe
@@ -37,6 +37,8 @@ class UsersController < ApplicationController
     @user.save
     if @user == current_user
       reset_session
+      redirect_to root_path, alert: '退会しました。'
+      return
     end
     redirect_to root_path
   end

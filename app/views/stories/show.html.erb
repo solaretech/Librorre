@@ -30,21 +30,31 @@
             <% end %>
           <% end %>
         </div>
-        <div class="content-box-foot">
-          <div class="btn foot-left">
-            <%= link_to "ストーリーの編集", edit_story_path(@story) %>
+        <% if user_signed_in? %>
+          <div class="content-box-foot">
+            <% if @story.user == current_user %>
+              <div class="btn foot-left">
+                <%= link_to "ストーリーの編集", edit_story_path(@story) %>
+              </div>
+            <% end %>
+            <div id="sub-content-show" class="btn btn-sub2 foot-left">
+              <img src="/images/comment.png" alt="コメント" width="16" height="16"> コメント
+            </div>
+            <div id="sub-content-hide" class="btn btn-sub2 foot-left">
+              <img src="/images/comment.png" alt="コメント" width="16" height="16">  非表示
+            </div>
+            <div id="library-btn-<%= @story.id %>" class="foot-right">
+              <!-- ライブラリ登録 -->
+              <%= render partial: '/libraries/library', locals:{story: @story} %>
+            </div>
           </div>
-          <div id="sub-content-show" class="btn btn-sub2 foot-left">
-            <img src="/images/comment.png" alt="コメント" width="16" height="16"> コメント
-          </div>
-          <div id="sub-content-hide" class="btn btn-sub2 foot-left">
-            <img src="/images/comment.png" alt="コメント" width="16" height="16">  非表示
-          </div>
-          <div id="library-btn-<%= @story.id %>" class="foot-right">
-            <!-- ライブラリ登録 -->
-            <%= render partial: '/libraries/library', locals:{story: @story} %>
-          </div>
+        <% else %>
+        <div class="content-box-foot registration-guide">
+          <p>
+            会員登録・ログインすると、ストーリーをマイライブラリに追加したり、トークに参加することができます。
+          </p>
         </div>
+        <% end %>
       </div>
     </div>
 
@@ -65,6 +75,9 @@
 
         <div id="sub-content">
           <h2 class ="content-box-head">コメント</h2>
+          <div id="comment-flash">
+            <%= render partial: '/layouts/flash', locals:{flash: flash} %>
+          </div>
           <div id="comment-submit-<%= @story.id %>" class="content-box-body">
             <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
           </div>
