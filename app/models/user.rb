@@ -14,4 +14,13 @@ class User < ApplicationRecord
   validates :email, presence: true, length:{maximum: 50}
 
   attachment :image
+
+  def self.search(search)
+    if search
+      where(['name LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
 end

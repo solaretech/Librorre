@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="content-area col-md-12 col-xs-12">
+      <div class ="content-box">
+        <h2 class="content-box-head">ユーザー一覧</h2>
+        <div class="content-box-body">
+          <%= form_tag(users_path, method: :get) do %>
+            <%= text_field_tag :search %>
+            <%= button_tag(type: 'submit') do %>
+              <img class="header-nav-icon" src="/images/search.png" alt="検索" width="16" height="16">
+            <% end %>
+          <% end %>
+          <table class="table">
+            <tr>
+              <th></th>
+              <th>利用者名</th>
+              <th>登録日</th>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <% if user.deleted_user == true %>
+                    <span class="btn-danger">退会済</span>
+                  <% end %>
+                </td>
+                <td><%= link_to user.name, user_path(user)%></td>
+                <td><%= user.created_at %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

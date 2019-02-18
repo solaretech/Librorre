@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:update, :unsubscribe]
+  before_action :auth_admin, only: [:index]
+  before_action :unsubscribed_user?, only: [:top]
 
   def top
     @article = Article.new
@@ -16,6 +18,10 @@ class UsersController < ApplicationController
     @visiteds = @user.visiteds.reverse
   end
 
+  def index
+    @users = User.search(params[:search])
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -30,8 +36,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.deleted_user = true
     @user.save
-    reset_session
+    if @user == current_user
+      reset_session
+    end
     redirect_to root_path
+  end
+
+  def unsubscribed_user?
+    if user_signed_in?
+      if current_user.deleted_user == true
+        reset_session
+      end
+    end
   end
 
   private
