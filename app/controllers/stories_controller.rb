@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])              # 選択したストーリー
     @article = @story.article                     # 選択したストーリーに関連するエラー記事
-    @stories = Story.page(params[:page]).per(10)  # 同一エラーに関するストーリー
+    @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10)  # 同一エラーに関するストーリー
     @topics = @story.story_topics                 # 見出し
     @story_comments = @story.story_comments.reverse
     @story_comment = StoryComment.new

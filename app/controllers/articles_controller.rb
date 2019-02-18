@@ -5,13 +5,13 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.page(params[:page]).per(10).search(params[:search])
-    @stories = Story.page(params[:page]).per(10).search(params[:search])
+    @articles = Article.order(:created_at).reverse_order.page(params[:page]).per(10).search(params[:search])
+    @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10).search(params[:search])
   end
 
   def show
     @article = Article.find(params[:id])
-    @stories = @article.stories.all
+    @stories = @article.stories.order(:created_at).reverse_order
   end
 
   def edit

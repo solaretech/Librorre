@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   before_action :unsubscribed_user?, only: [:top]
 
   def top
-    @article = Article.new
     @articles = Article.page(params[:page]).per(10)
-    @stories = Story.page(params[:page]).per(10)
+    @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10)
   end
 
   def about
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.search(params[:search])
+    @users = User.order(:created_at).reverse_order.search(params[:search])
   end
 
   def edit
