@@ -34,7 +34,7 @@
                 <div class="story-list clearfix">
                   <h4><%= link_to visited.story.title, story_path(visited.story) %> / <%= link_to visited.story.user.name, user_path(visited.story.user) %></h4>
                   <p>
-                    <%= visited.story.created_at.strftime("%Y - %-m - %-d / %-H : %-M") %>/
+                    <%= daytime_localize(visited.story.created_at) %>/
                     ライブラリ登録数：<%= visited.story.libraries.count %>
                   </p>
                 </div>
