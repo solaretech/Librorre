@@ -25,9 +25,9 @@
           </div>
           <div>最終更新：
             <% if current_user.admin == true %>
-              <%= link_to @article.updated_at, article_histories_path %>
+              <%= link_to daytime_localize(@article.updated_at), article_histories_path %>
             <% else %>
-              <%= @article.updated_at %>
+              <%= daytime_localize(@article.updated_at) %>
             <% end %>
           </div>
         </div>
