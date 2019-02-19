@@ -60,6 +60,7 @@ class UsersController < ApplicationController
     if user_signed_in?
       if current_user.deleted_user == true
         reset_session
+        redirect_to root_path, alert: '退会済みのユーザーです。'
       end
     end
   end
