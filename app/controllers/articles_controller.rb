@@ -7,6 +7,13 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.order(:created_at).reverse_order.page(params[:page]).per(10).search(params[:search])
     @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10).search(params[:search])
+    return unless request.xhr?
+    case params[:type]
+    when 'article'
+      render "/articles/article_list"
+    when 'story'
+      render "/stories/story_list"
+    end
   end
 
   def show
