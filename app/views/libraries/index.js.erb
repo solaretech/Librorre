@@ -1,9 +1,0 @@
-  $('#more-stocks').click(function(){
-    $('#stocks').append("<%= escape_javascript(render 'ender 'stock_list', libraries: @libraries) %>");
-    $('this').replaceWith("<%= escape_javascript(link_to_next_page @libraries, 'さらに10件表示', remote: true, id: more-stocks) %>");
-  });
-
-  $('#more-stories').click(function(){
-    $('#stories').append("<%= escape_javascript(render '/stories/story_list', storiess: @stories) %>");
-    $('this').replaceWith("<%= escape_javascript(link_to_next_page @stories, 'さらに10件表示', remote: true, id: more-stories) %>");
-  });

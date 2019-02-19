@@ -16,14 +16,8 @@
       <div class ="content-box">
         <h2 class ="content-box-head">新着ストーリー</h2>
         <div id="library-stories" class="content-box-body story-lists">
-          <%= render '/stories/story_list', stories: @stories %>
+          <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
-        <% if @stories.next_page %>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <div id="more-stories" class="content-box-hoot btn">
-          <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
-        </div>
-        <% end %>
       </div>
     </div>
 
@@ -51,14 +45,8 @@
       <div class ="content-box">
         <h2 class ="content-box-head">新着ストーリー</h2>
         <div id="library-stories" class="content-box-body story-lists">
-          <%= render '/stories/story_list', stories: @stories %>
+          <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
-        <% if @stories.next_page %>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <div id="more-stories" class="content-box-hoot btn">
-          <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
-        </div>
-        <% end %>
       </div>
     </div>
     <% end %>

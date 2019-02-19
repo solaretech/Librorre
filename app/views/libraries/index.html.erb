@@ -3,15 +3,9 @@
    <div id="content-left" class="content-area col-md-6 col-xs-12">
       <div class ="content-box">
         <h2 class="content-box-head">保存済みのストーリー</h2>
-        <div id="stock" class="content-box-body">
-          <%= render 'stock_list', libraries: @libraries %>
+        <div id="stocks" class="content-box-body">
+          <%= render '/libraries/stock_lists_wrapper', libraries: @libraries %>
         </div>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <% if @libraries.next_page %>
-        <div id="more-stocks" class="content-box-hoot btn">
-          <%= link_to_next_page @libraries, 'さらに10件表示', remote: true, id:"more-stocks" %>
-        </div>
-        <% end %>
       </div>
     </div>
 
@@ -19,14 +13,8 @@
       <div class ="content-box">
         <h2 class ="content-box-head">作成したストーリー</h2>
         <div id="library-stories" class="content-box-body story-lists">
-          <%= render '/stories/story_list', stories: @stories %>
+          <%= render '/stories/story_list_wrapper', stories: @stories %>
         </div>
-        <% if @stories.next_page %>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <div id="more-stories" class="content-box-hoot btn">
-          <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
-        </div>
-        <% end %>
       </div>
     </div>
 

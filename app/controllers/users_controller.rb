@@ -6,6 +6,13 @@ class UsersController < ApplicationController
   def top
     @articles = Article.page(params[:page]).per(10)
     @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10)
+    return unless request.xhr?
+    case params[:type]
+    when 'article'
+      render "/articles/article_list"
+    when 'story'
+      render "/stories/story_list"
+    end
   end
 
   def about
@@ -13,8 +20,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @libraries = @user.libraries.count
     @visiteds = @user.visiteds.reverse
+    return unless request.xhr?
+    case params[:type]
+    when 'story'
+      render "/stories/story_list"
+    end
   end
 
   def index

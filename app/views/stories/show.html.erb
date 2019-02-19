@@ -67,14 +67,8 @@
         <div id="main-content">
           <h2 class ="content-box-head">関連ストーリー</h2>
           <div class="content-box-body story-lists">
-            <%= render '/stories/story_list', stories: @stories %>
+            <%= render '/stories/story_lists_wrapper', stories: @stories %>
           </div>
-          <% if @stories.next_page %>
-            <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-            <div id="more-stories" class="content-box-foot btn">
-              <%= link_to_next_page @articles, 'さらに10件表示', remote: true, id:"more-stories" %>
-            </div>
-          <% end %>
         </div>
 
         <div id="sub-content">

@@ -34,7 +34,7 @@ li{
   list-style: none;
 }
 
-/* ヘッダーメニュー */
+/* ヘッダーメニュー関係 */
 
 header{
   width: 95%;
@@ -90,14 +90,13 @@ header{
   display: block;
 }
 
-/* コンテンツエリア */
+/* コンテンツエリア関係 */
 
 .content-area{
   padding: 0 10px;
 }
 
 .content-box{
-  padding: 20px;
   height: 725px;
   border: solid 1px #D8D8D8;
   overflow: scroll;
@@ -112,11 +111,12 @@ header{
   color: #424242;
   font-weight: bold;
   font-size: 24px;
-  margin: 0 0 20px 0;
+  margin: 0;
   padding: 10px;
 }
 
 .content-box-body{
+  padding: 20px;
   margin: 0 auto;
   height: 575px;
   overflow: scroll;
@@ -124,8 +124,9 @@ header{
 
 .content-box-foot{
   position: absolute;
+  padding: 20px;
   bottom: 5px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -152,7 +153,24 @@ header{
   resize: none;
 }
 
-/* ボタン */
+/* リスト関係 */
+
+.content-list, .story-list, .comment-list{
+  width: 100%;
+  padding: 10px;
+  border-bottom: solid 1px #BDBDBD;
+}
+
+.content-list:hover, .story-list:hover, .comment-list:hover{
+  background-color: #FAFAFA;
+}
+
+.content-list:last-child, .story-list:last-child, .comment-list:last-child{
+  width: 100%;
+  border-bottom: none;
+}
+
+/* ボタン関係 */
 
 .btn{
   background-color: #088A68;
@@ -160,13 +178,20 @@ header{
 }
 
 .btn:hover{
-  background-color: #01DFA5;
+  background-color: #516B59;
+  color: white;
 }
 
 .btn-wide{
   width: 90%;
   float: none;
-  margin: 10px auto;
+  margin: 5px auto;
+}
+
+.btn-half{
+  width: 40%;
+  float: left;
+  margin: 5px 5%;
 }
 
 .btn-sub, .btn-sub > a{
@@ -183,12 +208,39 @@ header{
   color: black;
 }
 
+.btn-add{
+  background-color: #A9D0F5;
+  margin: 5px;
+  color: #585858;
+}
+
+.btn-add:hover{
+  background-color: #E0ECF8;
+}
+
+.btn-remove{
+  background-color: #F6CECE;
+  margin: 5px;
+  color: #585858;
+}
+
+.btn-remove:hover{
+  background-color: #F8E0E0;
+}
+
 .btn-comment-submit{
   float: left;
   height: 60px;
   width: 20%;
   margin-left: 5px;
 }
+
+/* ポジション指定 */
+.position-center{
+  text-align: center;
+}
+
+/* Ajax関連レイアウト */
 
 #user-menu > ul{
   position: relative;
@@ -205,7 +257,6 @@ header{
 }
 
 #more-articles, #more-stories, #more-stocks{
-  background-color: #088A68;
   padding: 0;
   margin :5px auto;
   width :100%;
@@ -218,6 +269,17 @@ header{
 
 #sub-content, #sub-content-hide{
   display: none;
+}
+
+/* 特殊リンク */
+
+.category-tag{
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid #CAD8F3;
+  background: none;
+  background-color: #DEE7F8;
+  font-weight: normal;
 }
 
 /* フラッシュメッセージ */

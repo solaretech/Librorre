@@ -1,0 +1,6 @@
+<%= render partial: '/articles/article_list', locals:{articles: articles} %>
+<% if articles.next_page %>
+  <div class="more-article-link">
+    <%= link_to_next_page articles, 'さらに10件表示', params: { type: :article }, remote: true, id:"more-articles" %>
+  </div>
+<% end %>

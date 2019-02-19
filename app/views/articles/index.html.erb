@@ -4,12 +4,7 @@
       <div class ="content-box">
         <h2 class="content-box-head">検索結果(エラー)</h2>
         <div id="articles" class="content-box-body">
-          <%= render partial: '/articles/article_list', locals:{articles: @articles} %>
-          <% if @articles.next_page %>
-            <div class="more-article-link">
-              <%= link_to_next_page @articles, 'さらに10件表示', params: { type: :article }, remote: true, id:"more-articles" %>
-            </div>
-          <% end %>
+          <%= render '/articles/article_lists_wrapper', articles: @articles %>
         </div>
       </div>
     </div>
@@ -17,15 +12,9 @@
     <div id="content-right" class="content-area col-md-6 col-xs-12">
       <div class ="content-box">
         <h2 class ="content-box-head">検索結果(ストーリー)</h2>
-        <div id="stories" class="content-box-body story-lists">
-          <%= render partial: '/stories/story_list', locals:{stories: @stories} %>
+        <div id="stories" class="content-box-body">
+          <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
-        <!-- 次ページがある場合、「さらに表示」ボタンを表示 -->
-        <% if @stories.next_page %>
-        <div class="more-story-link">
-          <%= link_to_next_page @stories, 'さらに10件表示', params: { type: :story }, remote: true, id:"more-stories" %>
-        </div>
-        <% end %>
       </div>
     </div>
 

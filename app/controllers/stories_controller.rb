@@ -28,8 +28,8 @@ class StoriesController < ApplicationController
     @story = @article.stories.new(story_params)
     @story.user_id = current_user.id
     if @story.save
-      category_list = params[:category_list].split(",")
-      @story.save_story_categories(category_list)
+      @category_list = params[:category_list].split(",")
+      @story.save_story_categories(@category_list)
       redirect_to story_path(@story), success: 'ストーリーを作成しました。'
     else
       @story_topic = @story.story_topics.build
@@ -43,7 +43,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @category_list = params[:category_list].split(",")
     if @story.update(story_params)
-      @story.save_story_categories(category_list)
+      @story.save_story_categories(@category_list)
       redirect_to story_path(@story), success: 'ストーリーを更新しました'
     else
       flash.now[:alert] = 'ストーリーの更新に失敗しました。'

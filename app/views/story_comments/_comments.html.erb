@@ -1,8 +1,10 @@
 <% if story_comments.count == 0 %>
-  <p>No comments</p>
+  <div class="comment-list clearfix">
+    <p>まだ投稿はありません。</p>
+  </div>
 <% else %>
   <% story_comments.each do |comment| %>
-    <div class="comment-list clearfix">
+    <div class="content-list clearfix">
       <%= attachment_image_tag comment.user, :image, :fill, 64, 64, class: 'comment-user-thumb' %>
       <div class="comment-user-text">
         <p class="comment-user-name"><%= comment.user.name %></p>
