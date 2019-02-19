@@ -1,6 +1,6 @@
 <%= render partial: '/stories/story_list', locals:{stories: stories} %>
-<% if @stories.next_page %>
+<% if stories.next_page %>
   <div class="more-story-link">
-    <%= link_to_next_page @stories, 'さらに10件表示', params: { type: :story }, remote: true, id:"more-stories" %>
+    <%= link_to_next_page stories, 'さらに10件表示', params: { type: :story }, remote: true, id:"more-stories" %>
   </div>
 <% end %>
