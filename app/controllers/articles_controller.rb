@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @stories = @article.stories.order(:created_at).reverse_order
+    @stories = @article.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
   end
 
   def edit
