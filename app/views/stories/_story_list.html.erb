@@ -1,5 +1,5 @@
 <% stories.each do |story| %>
-  <div class="story-list clearfix">
+  <div class="content-list clearfix">
     <h4><%= link_to story.title, story_path(story) %> / <%= link_to story.user.name, user_path(story.user) %></h4>
     <p id="library-count-<%= story.id %>">
       <%= render partial: '/libraries/count', locals:{story: story} %>

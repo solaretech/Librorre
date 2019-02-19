@@ -10,23 +10,14 @@
   margin: 10px 10px;
 }
 
-.story-lists{
-
+.story-topic-title{
+  font-weight: bold;
+  margin: 12px 0;
 }
 
-.story-list, .comment-list{
-  width: 100%;
-  padding: 10px;
-  border-bottom: solid 1px #BDBDBD;
-}
-
-.story-list:hover, .comment-list:hover{
-  background-color: #FAFAFA;
-}
-
-.story-list:last-child, .comment-list:last-child{
-  width: 100%;
-  border-bottom: none;
+.story-body-area{
+  border-left: solid 6px #DEB580;
+  padding-left: 32px;
 }
 
 #comment-flash > #flash{

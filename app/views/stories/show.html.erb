@@ -7,26 +7,30 @@
           <%= @story.title %>
         </h2>
         <div class="content-box-body">
-          <p>リソース：<%= link_to @story.article.title, article_path(@story.article) %></p>
-          <p>タグ：
+          <p>
+            リソース：<%= link_to @story.article.title, article_path(@story.article) %>
+          </p>
+          <p>
             <% @story.categories.each do |category| %>
-              <%= link_to category.name, category_path(category) %>
+              <%= link_to category.name, category_path(category), class:'category-tag' %>
             <% end %>
           </p>
           <% @topics.each do |topic| %>
-            <h4><%= topic.title %></h4>
+            <h4 class="story-topic-title"><%= topic.title %></h4>
             <% topic.story_bodies.each do |body| %>
-              <% if body.text_type == 1 %>
-              <div class="code">
-                <pre><code>
-                  <%= simple_format(body.content) %>
-                </code></pre>
+              <div class="story-body-area">
+                <% if body.text_type == 1 %>
+                  <div class="code">
+                    <pre><code>
+                      <%= simple_format(body.content) %>
+                    </code></pre>
+                  </div>
+                <% else %>
+                  <div>
+                    <%= simple_format(body.content) %>
+                  </div>
+                <% end %>
               </div>
-              <% else %>
-              <div>
-                <%= simple_format(body.content) %>
-              </div>
-              <% end %>
             <% end %>
           <% end %>
         </div>
