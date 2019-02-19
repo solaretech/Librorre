@@ -24,8 +24,12 @@
             <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn" %>
           </div>
           <div>最終更新：
-            <% if current_user.admin == true %>
-              <%= link_to daytime_localize(@article.updated_at), article_histories_path %>
+            <% if user_signed_in? %>
+              <% if current_user.admin == true %>
+                <%= link_to daytime_localize(@article.updated_at), article_histories_path %>
+              <% else %>
+                <%= daytime_localize(@article.updated_at) %>
+              <% end %>
             <% else %>
               <%= daytime_localize(@article.updated_at) %>
             <% end %>
@@ -39,6 +43,17 @@
         <h2 class ="content-box-head">関連ストーリー</h2>
         <div class="content-box-body">
           <%= render '/stories/story_lists_wrapper', stories: @stories %>
+        </div>
+        <div class="content-box-foot">
+          <% if user_signed_in? %>
+            <%= link_to(new_article_stories_path(@article), class:'btn btn-sub2') do %>
+              <p>ストーリーの作成</p>
+            <% end %>
+          <% else %>
+            <p class="foot-not-active">
+              ストーリーの作成(ログイン時のみ)
+            </p>
+          <% end %>
         </div>
       </div>
     </div>
