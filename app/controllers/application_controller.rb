@@ -42,13 +42,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 管理者ログイン認証
   def auth_admin
     if user_signed_in?
-      if current_user.admin == false
-        redirect_to root_path
+      user = User.find(current_user.id)
+      if user.admin == false
+        redirect_to root_path, alert: '許可されていないリクエストです。'
       end
     else
-      redirect_to root_path
+      redirect_to root_path, alert: '許可されていないリクエストです。'
     end
   end
 
