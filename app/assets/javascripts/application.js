@@ -34,18 +34,15 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
   $('#sub-content-show').click(function(){
   $('#main-content').fadeOut(500);
-  $(this).fadeOut();
   $('#sub-content').delay(500).fadeIn(500);
-  $('#sub-content-hide').delay(500).fadeIn(500);
   });
 });
 
 $(document).on('turbolinks:load', function() {
   $('#sub-content-hide').click(function(){
   $('#sub-content').fadeOut(500);
-  $(this).fadeOut();
   $('#main-content').delay(500).fadeIn(500);
-  $('#sub-content-show').delay(500).fadeIn(500);});
+  });
 });
 
 // コンテンツの高さ調整

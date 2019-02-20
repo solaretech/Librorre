@@ -35,6 +35,9 @@ html, body {
 
 a{
   color: black;
+  &:hover{
+    color: #BDBDBD;
+  }
 }
 
 li{
@@ -132,6 +135,17 @@ header{
   display: block;
 }
 
+/* フッター */
+footer{
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  color: white;
+  background-color: #088A68;
+  position: fixed;
+  bottom: 0;
+}
+
 /* コンテンツエリア関係 */
 .container{
   height: calc(100% - 140px);
@@ -200,7 +214,7 @@ header{
 }
 
 .foot-textarea{
-  width: 70%;
+  width: 75%;
   height: 60px;
   float: left;
   resize: none;
@@ -331,7 +345,7 @@ header{
   line-height: 30px;
 }
 
-#sub-content, #sub-content-hide{
+#sub-content{
   position: relative;
   display: none;
 }
@@ -340,6 +354,8 @@ header{
 #sub-content-show, #sub-content-hide{
   &:hover {
     cursor: pointer;
+    text-decoration: underline;
+    color: #BDBDBD;
   }
 }
 
