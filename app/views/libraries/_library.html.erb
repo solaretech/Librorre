@@ -2,11 +2,11 @@
 <div>
   <% if story.added_to_library?(current_user) %>
     <%= link_to(story_libraries_path(story.id), method: :delete, remote: true) do %>
-      <img class="header-nav-icon" src="/images/minus.png" alt="追加" width="14" height="14">ライブラリから削除
+      <img class="btn-image" src="/images/minus.png" alt="追加" width="14" height="14">ライブラリから削除
     <% end %>
   <% else %>
     <%= link_to(story_libraries_path(story.id), method: :post, remote: true) do %>
-      <img class="header-nav-icon" src="/images/plus.png" alt="追加" width="14" height="14">ライブラリへ追加
+      <img class="btn-image" src="/images/plus.png" alt="追加">ライブラリへ追加
     <% end %>
   <% end %>
 </div>
