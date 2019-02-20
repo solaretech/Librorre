@@ -69,7 +69,8 @@ header{
 
 .header-search{
   float: left;
-  width: 30%;
+  margin: 10px;
+  width: 25%;
 }
 
 .header-search-form, .header-search-form-area{
@@ -231,6 +232,7 @@ header{
 .btn{
   background-color: #088A68;
   color: white;
+  height: 36px;
 }
 
 .btn:hover{
@@ -323,7 +325,7 @@ header{
   margin :5px auto;
   width :100%;
   font-size: 16px;
-  color: white;
+  color: #6E6E6E;
   text-align: center;
   height: 30px;
   line-height: 30px;
@@ -426,7 +428,46 @@ header{
   }
 
   .header-search{
-    margin: 4px 0;
+    width: 90%;
+    margin: 4px auto;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .header-search-form{
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .header-search-form-textfield, .header-search-form-btn, .header-search-form-icon{
+    display: inline-block;
+  }
+
+  .header-search-form-textfield{
+    font-size: 16px;
+    height: 20px;
+    float: none;
+  }
+
+  .header-search-form-btn{
+    width: 20px;
+    height: 20px;
+    float: none;
+    border-radius: 4px;
+  }
+
+  .header-search-form-icon{
+    width: 12px;
+    height: 12px;
+  }
+
+  .header-nav{
+    text-align: center;
+  }
+
+  .header-nav-list{
+    float: none;
+    display: inline-block;
   }
 
   .header-nav-icon{
@@ -441,6 +482,7 @@ header{
     line-height: 16px;
     font-weight: bold;
     margin-bottom: 0;
+    margin-right: 10px;
   }
 
   .row, .content-area, .content-box{

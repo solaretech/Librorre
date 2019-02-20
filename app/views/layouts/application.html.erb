@@ -31,7 +31,7 @@
 
       <% if user_signed_in? %>
 
-      <div class="header-nav">
+      <div class="header-nav clearfix">
         <div class="header-nav-list">
           <%= link_to(about_path) do %>
             <img class="header-nav-icon" src="/images/about.png" alt="使い方">
@@ -40,8 +40,8 @@
         </div>
         <div class="header-nav-list">
           <%= link_to(libraries_path) do %>
-            <img class="header-nav-icon" src="/images/library.png" alt="マイライブラリ" width="40" height="40">
-            <p class="header-nav-text">マイライブラリ</p>
+            <img class="header-nav-icon" src="/images/library.png" alt="ライブラリ" width="40" height="40">
+            <p class="header-nav-text">ライブラリ</p>
           <% end %>
         </div>
         <div id="user-menu" class="header-nav-list">
@@ -58,7 +58,7 @@
 
       <% else %>
 
-      <div class="header-nav">
+      <div class="header-nav clearfix">
         <div class="header-nav-list">
           <%= link_to(about_path) do %>
             <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
