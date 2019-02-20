@@ -5,10 +5,7 @@
       <div class ="content-box">
         <h2 class="content-box-head">タグ：<%= @category.name %>を含むエラー記事</h2>
         <div class="content-box-body article-lists">
-          <%= render '/articles/article_lists_wrapper', articles: @category.articles %>
-        </div>
-        <div class="content-box-foot">
-          <div class="btn"></div>
+          <%= render '/articles/article_lists_wrapper', articles: @articles %>
         </div>
       </div>
     </div>
@@ -17,7 +14,7 @@
       <div class ="content-box">
         <h2 class ="content-box-head">タグ：<%= @category.name %>を含むストーリー</h2>
         <div class="content-box-body story-lists">
-          <%= render '/stories/story_lists_wrapper', stories: @category.stories %>
+          <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
 
       </div>
