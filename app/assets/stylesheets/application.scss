@@ -19,6 +19,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$header-height: 60px;
+$footer-height: 20px;
+
 *{
   margin: 0;
   padding: 0;
@@ -49,7 +52,7 @@ li{
 header{
   width: 95%;
   margin: 0 auto;
-  height: 60px;
+  height: $header-height;
   padding: 5px 20px;
   border-bottom: solid 1px #D8D8D8;
   margin-bottom: 20px;
@@ -66,6 +69,32 @@ header{
 
 .header-search{
   float: left;
+  width: 30%;
+}
+
+.header-search-form, .header-search-form-area{
+  width: 100%;
+}
+
+.header-search-form-textfield{
+  font-size: 20px;
+  height: 30px;
+  width: 80%;
+  float: left;
+}
+
+.header-search-form-btn{
+  width: 30px;
+  height: 30px;
+  float: left;
+  border: solid 1px #A4A4A4;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.header-search-form-icon{
+  width: 20px;
+  height: 20px;
 }
 
 
@@ -104,7 +133,7 @@ header{
 
 /* コンテンツエリア関係 */
 .container{
-  height: 87%;
+  height: calc(100% - 140px);
 }
 
 .row, .content-area{
@@ -120,7 +149,7 @@ header{
   height: 100%;
   width: 100%;
   border: solid 1px #D8D8D8;
-  overflow: hidden;
+  overflow: scroll;
   position: relative;
   box-shadow: 5px 5px 10px #A4A4A4;
 }

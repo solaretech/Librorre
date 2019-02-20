@@ -18,12 +18,14 @@
 
     <header class="clearfix">
       <h1 class="header-logo">LiBRORRE</h1>
-      <div class="header-search">
-        <%= form_tag(articles_path, method: :get) do %>
-          <%= text_field_tag :search %>
-          <%= button_tag(type: 'submit') do %>
-            <img src="/images/search.png" alt="検索" width="16" height="16">
-          <% end %>
+      <div class="header-search clearfix">
+        <%= form_tag(articles_path, method: :get, class: 'header-search-form-area') do %>
+          <div class="header-search-form">
+            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
+            <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
+              <img class="header-search-form-icon" src="/images/search.png" alt="検索">
+            <% end %>
+          </div>
         <% end %>
       </div>
 
