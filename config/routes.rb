@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :index, :edit, :update]
   resources :articles, only:[:show, :index, :new, :edit, :create, :update, :destroy] do
     resource :stories, only:[:new, :create, :destroy]
+    resource :article_comments, only:[:create]
   end
   resources :stories, only:[:show, :new, :edit, :create, :update, :destroy] do
     resource :libraries, only:[:create, :destroy]
     resource :story_comments, only:[:create]
   end
   resources :story_comments, only:[:destroy]
+  resources :article_comments, only:[:destroy]
   resources :categories, only:[:show]
   resources :libraries, only:[:index, :create, :destroy]
 

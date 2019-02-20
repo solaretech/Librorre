@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :article_histories, dependent: :destroy
   has_many :stories, dependent: :destroy
   has_many :story_comments, dependent: :destroy
+  has_many :article_comments, dependent: :destroy
   has_many :libraries, dependent: :destroy
   has_many :visiteds, dependent: :destroy
 
