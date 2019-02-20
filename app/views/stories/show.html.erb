@@ -59,23 +59,23 @@
       </div>
 
       <div id="sub-content" class ="content-box">
-          <h2 class ="content-box-head">コメント</h2>
-          <div id="comment-flash">
-            <%= render partial: '/layouts/flash', locals:{flash: flash} %>
-          </div>
-          <div id="comment-submit-<%= @story.id %>" class="content-box-body">
-            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
-          </div>
-          <div class="content-box-foot">
-            <%= form_for([@story, @story_comment], remote: true) do |f| %>
-            <%= f.text_area :comment, class:'foot-textarea' %>
-            <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
-            <% end %>
-            <div id="sub-content-hide" class="btn btn-sub2 foot-left">
-              <img src="/images/comment.png" class="btn-image">  非表示
-            </div>
+        <h2 class ="content-box-head">コメント</h2>
+        <div id="comment-flash">
+          <%= render partial: '/layouts/flash', locals:{flash: flash} %>
+        </div>
+        <div id="comment-submit-<%= @story.id %>" class="content-box-body">
+          <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
+        </div>
+        <div class="content-box-foot">
+          <%= form_for([@story, @story_comment], remote: true) do |f| %>
+          <%= f.text_area :comment, class:'foot-textarea' %>
+          <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
+          <% end %>
+          <div id="sub-content-hide" class="btn btn-sub2 foot-left">
+            <img src="/images/comment.png" class="btn-image">  非表示
           </div>
         </div>
+      </div>
     </div>
 
     <div id="content-right" class="content-area col-md-6 col-xs-12">
