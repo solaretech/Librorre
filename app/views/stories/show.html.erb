@@ -2,7 +2,7 @@
   <div class="row">
 
     <div id="content-left" class="content-area col-md-6 col-xs-12">
-      <div class ="content-box">
+      <div id="main-content" class ="content-box">
         <h2 class="content-box-head">
           <%= @story.title %>
         </h2>
@@ -44,9 +44,6 @@
             <div id="sub-content-show" class="btn btn-sub2 foot-left">
               <img src="/images/comment.png" alt="コメント" width="16" height="16"> コメント
             </div>
-            <div id="sub-content-hide" class="btn btn-sub2 foot-left">
-              <img src="/images/comment.png" alt="コメント" width="16" height="16">  非表示
-            </div>
             <div id="library-btn-<%= @story.id %>" class="foot-right">
               <!-- ライブラリ登録 -->
               <%= render partial: '/libraries/library', locals:{story: @story} %>
@@ -60,18 +57,8 @@
         </div>
         <% end %>
       </div>
-    </div>
 
-    <div id="content-right" class="content-area col-md-6 col-xs-12">
-      <div class ="content-box">
-        <div id="main-content">
-          <h2 class ="content-box-head">関連ストーリー</h2>
-          <div class="content-box-body story-lists">
-            <%= render '/stories/story_lists_wrapper', stories: @stories %>
-          </div>
-        </div>
-
-        <div id="sub-content">
+      <div id="sub-content" class ="content-box">
           <h2 class ="content-box-head">コメント</h2>
           <div id="comment-flash">
             <%= render partial: '/layouts/flash', locals:{flash: flash} %>
@@ -84,9 +71,19 @@
             <%= f.text_area :comment, class:'foot-textarea' %>
             <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
             <% end %>
+            <div id="sub-content-hide" class="btn btn-sub2 foot-left">
+              <img src="/images/comment.png" class="btn-image">  非表示
+            </div>
           </div>
         </div>
+    </div>
 
+    <div id="content-right" class="content-area col-md-6 col-xs-12">
+      <div class ="content-box">
+        <h2 class ="content-box-head">関連ストーリー</h2>
+        <div class="content-box-body story-lists">
+          <%= render '/stories/story_lists_wrapper', stories: @stories %>
+        </div>
       </div>
     </div>
 

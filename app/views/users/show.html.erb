@@ -2,7 +2,7 @@
   <div class="row">
 
     <div id="content-left" class="content-area col-md-6 col-xs-12">
-      <div class ="content-box">
+      <div id="main-content" class ="content-box">
         <h2 class="content-box-head user-info">利用者情報</h2>
         <div class="content-box-body user-info">
           <div>
@@ -22,11 +22,29 @@
           <% end %>
         </div>
       </div>
+
+      <!-- 編集ボタンクリック時に表示 -->
+      <div id="sub-content" class ="content-box">
+        <h2 class ="content-box-head user-edit">利用者情報の編集</h2>
+        <%= form_for(@user) do |f| %>
+          <div class="content-box-body user-edit">
+            <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
+            <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
+            <%= f.attachment_field :image %>
+            <% if @user.deleted_user == false %>
+              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn-danger" %>
+            <% end %>
+          </div>
+          <div class="content-box-foot position-center">
+            <%= f.submit "更新", class:"btn btn-half" %>
+            <span id="sub-content-hide" class="btn btn-half">更新のキャンセル</span>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div id="content-right" class="content-area col-md-6 col-xs-12">
       <div class ="content-box">
-        <div id="main-content">
           <!-- ログイン時と未ログイン時で表示を分ける -->
           <% if user_signed_in? %>
             <!-- 自分自身の情報を閲覧している場合、最近閲覧したストーリーを表示 -->
@@ -57,29 +75,6 @@
               <%= render '/stories/story_lists_wrapper', stories: @user.stories %>
             </div>
           <% end %>
-        </div>
-      <!-- 編集ボタンクリック時に表示 -->
-        <div id="sub-content">
-          <h2 class ="content-box-head user-edit">利用者情報の編集</h2>
-          <div class="content-box-body user-edit">
-
-          <%= form_for(@user) do |f| %>
-
-            <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
-            <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
-            <%= f.attachment_field :image %>
-            <% if @user.deleted_user == false %>
-              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn-danger" %>
-            <% end %>
-          </div>
-          <div class="content-box-foot position-center">
-            <%= f.submit "更新", class:"btn btn-half" %>
-            <span id="sub-content-hide" class="btn btn-half">更新のキャンセル</span>
-          </div>
-
-          <% end %>
-
-        </div>
       </div>
     </div>
 

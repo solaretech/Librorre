@@ -26,12 +26,22 @@
   word-break : break-all;
 }
 
+html, body {
+  height: 100%;
+}
+
 a{
   color: black;
 }
 
 li{
   list-style: none;
+}
+
+/* Tag-itヘルプメッセージ非表示 */
+
+.ui-helper-hidden-accessible {
+  display: none;
 }
 
 /* ヘッダーメニュー関係 */
@@ -74,6 +84,8 @@ header{
 
 .header-nav-icon{
   float: left;
+  width: 40px;
+  height: 40px;
   margin: 5px 10px;
 }
 
@@ -91,20 +103,30 @@ header{
 }
 
 /* コンテンツエリア関係 */
+.container{
+  height: 87%;
+}
+
+.row, .content-area{
+  height: 100%;
+}
+
 
 .content-area{
   padding: 0 10px;
 }
 
 .content-box{
-  height: 725px;
+  height: 100%;
+  width: 100%;
   border: solid 1px #D8D8D8;
-  overflow: scroll;
+  overflow: hidden;
   position: relative;
   box-shadow: 5px 5px 10px #A4A4A4;
 }
 
 .content-box-head{
+  position: absolute;
   width: 100%;
   text-align: center;
   background-color: #F5ECCE;
@@ -117,15 +139,16 @@ header{
 
 .content-box-body{
   padding: 20px;
-  margin: 0 auto;
-  height: 575px;
+  margin: 44px auto 0 auto;
+  height: 100%;
   overflow: scroll;
 }
 
 .content-box-foot{
+  background-color: white;
   position: absolute;
   padding: 20px;
-  bottom: 5px;
+  bottom: 0px;
   width: 100%;
   margin: 0 auto;
 }
@@ -239,12 +262,18 @@ header{
   margin-left: 5px;
 }
 
+.btn-image{
+  width: 14px;
+  height: 14px;
+}
+
+
 /* ポジション指定 */
 .position-center{
   text-align: center;
 }
 
-/* Ajax関連レイアウト */
+/* JS・Ajax関連レイアウト */
 
 #user-menu > ul{
   position: relative;
@@ -272,6 +301,7 @@ header{
 }
 
 #sub-content, #sub-content-hide{
+  position: relative;
   display: none;
 }
 
@@ -323,4 +353,67 @@ header{
   display: block;
   width: 100%;
   padding: 0;
+}
+
+/* レスポンシブ */
+
+@media screen and (max-width:425px){
+  #content-right{
+    display: none;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  header{
+    text-align: center;
+    height: auto;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+
+  .container{
+    height: 75%;
+  }
+
+  .header-logo, .header-search, .header-nav{
+    float: none;
+  }
+
+  .header-logo{
+    height: auto;
+    line-height: 24px;
+    font-size: 24px;
+  }
+
+  .header-search{
+    margin: 4px 0;
+  }
+
+  .header-nav-icon{
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin: 0 4px;
+  }
+
+  .header-nav-text{
+    float:left;
+    line-height: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .row, .content-area, .content-box{
+    height: 100%;
+  }
+
+  .content-box-head{
+    font-size: 20px;
+    padding: 4px;
+  }
+
 }
