@@ -2,7 +2,7 @@
   <div class="row">
 
     <div id="content-left" class="content-area col-md-6 col-xs-12">
-      <div class ="content-box">
+      <div id="main-content" class ="content-box">
         <h2 class="content-box-head"><%= @article.title %></h2>
         <div class="content-box-body">
           <p>タグ：
@@ -23,17 +23,40 @@
           <div>
             <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn" %>
           </div>
-          <div>最終更新：
+          <div>
             <% if user_signed_in? %>
               <% if current_user.admin == true %>
-                <%= link_to daytime_localize(@article.updated_at), article_histories_path %>
+                <p>
+                  最終更新：<%= link_to daytime_localize(@article.updated_at), article_histories_path %> /
+                  <span id="sub-content-show">記事についてディスカッションする</span>
+                </p>
               <% else %>
-                <%= daytime_localize(@article.updated_at) %>
+                <p>
+                  最終更新：<%= daytime_localize(@article.updated_at) %> /
+                  <span id="sub-content-show">記事についてディスカッションする</span>
+                </p>
               <% end %>
             <% else %>
-              <%= daytime_localize(@article.updated_at) %>
+              最終更新：<%= daytime_localize(@article.updated_at) %>
             <% end %>
           </div>
+        </div>
+      </div>
+
+      <div id="sub-content" class ="content-box">
+        <h2 class ="content-box-head">コメント</h2>
+        <div id="comment-flash">
+          <%= render partial: '/layouts/flash', locals:{flash: flash} %>
+        </div>
+        <div id="comment-submit-<%= @article.id %>" class="content-box-body">
+          <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments} %>
+        </div>
+        <div class="content-box-foot">
+          <%= form_for([@article, @article_comment], remote: true) do |f| %>
+          <%= f.text_area :comment, class:'foot-textarea' %>
+          <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
+          <% end %>
+          <span id="sub-content-hide">記事へ戻る</span>
         </div>
       </div>
     </div>
