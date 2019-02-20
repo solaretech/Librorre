@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Librorre</title>
+    <title>LiBRORRE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,7 +22,7 @@
         <%= form_tag(articles_path, method: :get) do %>
           <%= text_field_tag :search %>
           <%= button_tag(type: 'submit') do %>
-            <img class="header-nav-icon" src="/images/search.png" alt="検索" width="16" height="16">
+            <img src="/images/search.png" alt="検索" width="16" height="16">
           <% end %>
         <% end %>
       </div>
@@ -32,7 +32,7 @@
       <div class="header-nav">
         <div class="header-nav-list">
           <%= link_to(about_path) do %>
-            <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
+            <img class="header-nav-icon" src="/images/about.png" alt="使い方">
             <p class="header-nav-text">使い方</p>
           <% end %>
         </div>
