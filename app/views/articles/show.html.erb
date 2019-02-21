@@ -21,21 +21,18 @@
         </div>
         <div class="content-box-foot">
           <div>
-            <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn" %>
+            <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn btn-half" %>
           </div>
           <div>
-            <% if user_signed_in? %>
-              <% if current_user.admin == true %>
-                <p>
-                  最終更新：<%= link_to daytime_localize(@article.updated_at), article_histories_path %> /
-                  <span id="sub-content-show">記事についてディスカッションする</span>
-                </p>
-              <% else %>
-                <p>
-                  最終更新：<%= daytime_localize(@article.updated_at) %> /
-                  <span id="sub-content-show">記事についてディスカッションする</span>
-                </p>
-              <% end %>
+            <% if admin? %>
+              <p>
+                最終更新：<%= link_to daytime_localize(@article.updated_at), article_histories_path %>
+              </p>
+              <p id="sub-content-show">記事についてディスカッションする</p>
+              </p>
+            <% elsif user_signed_in? %>
+              <p>最終更新：<%= daytime_localize(@article.updated_at) %></p>
+              <p id="sub-content-show">記事についてディスカッションする</p>
             <% else %>
               最終更新：<%= daytime_localize(@article.updated_at) %>
             <% end %>

@@ -55,6 +55,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      redirect_to articles_path, success: 'ストーリーを削除しました'
+    else
+      @category_list = params[:category_list].split(",")
+      flash.now[:alert] = 'ストーリーの更新に失敗しました。'
+      render :edit
+    end
+  end
+
   private
 
   def article_params

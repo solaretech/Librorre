@@ -58,7 +58,7 @@ class StoriesController < ApplicationController
       redirect_to article_path(article), success: 'ストーリーを削除しました'
     else
       @category_list = params[:category_list].split(",")
-      flash.now[:alert] = 'ストーリーの更新に失敗しました。'
+      flash.now[:alert] = 'ストーリーの削除に失敗しました。'
       render :edit
     end
   end
