@@ -5,19 +5,21 @@
   </div>
 <% else %>
   <% article_comments.each do |comment| %>
-    <div class="content-list clearfix">
-      <%= attachment_image_tag comment.user, :image, :fill, 64, 64, class: 'comment-user-thumb' %>
-      <div class="comment-user-text">
-        <p class="comment-user-name"><%= comment.user.name %></p>
-        <p><%= simple_format(comment.comment) %></p>
-        <p><%= daytime_localize(comment.updated_at) %>
-          <% if comment.user == current_user %>
-            <span>
-              / <%= link_to "削除", article_comment_path(comment), method: :delete, remote: true, data: { confirm: '削除してもよろしいですか？' } %>
-            </span>
-          <% end %>
-         </p>
+    <% if comment.user.deleted_user == false %>
+      <div class="content-list clearfix">
+        <%= attachment_image_tag comment.user, :image, :fill, 64, 64, class: 'comment-user-thumb' %>
+        <div class="comment-user-text">
+          <p class="comment-user-name"><%= comment.user.name %></p>
+          <p><%= simple_format(comment.comment) %></p>
+          <p><%= daytime_localize(comment.updated_at) %>
+            <% if comment.user == current_user %>
+              <span>
+                / <%= link_to "削除", article_comment_path(comment), method: :delete, remote: true, data: { confirm: '削除してもよろしいですか？' } %>
+              </span>
+            <% end %>
+           </p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
