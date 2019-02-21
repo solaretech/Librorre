@@ -5,14 +5,14 @@
         <h2 class="content-box-head"><%= @user.name %>が投稿したディスカッション/トーク</h2>
         <div class="content-box-body col-md-6 col-xs-6">
           <h4>- ディスカッション一覧</h4>
-          <div id="article-comment-lists">
+          <div id="article-comment-lists" class="user-admin-comments">
             <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments} %>
           </div>
         </div>
 
         <div class="content-box-body col-md-6 col-xs-6">
           <h4>- トーク一覧</h4>
-          <div id="story-comment-lists">
+          <div id="story-comment-lists" class="user-admin-comments">
             <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
           </div>
         </div>
