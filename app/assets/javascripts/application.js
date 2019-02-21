@@ -31,15 +31,15 @@ $(document).on('turbolinks:load', function() {
 // サブコンテンツの表示・非表示
 $(document).on('turbolinks:load', function() {
   $('#sub-content-show').click(function(){
-  $('#main-content').fadeOut(500);
-  $('#sub-content').delay(500).fadeIn(500);
+    $('#main-content').fadeOut(500);
+    $('#sub-content').delay(500).fadeIn(500);
   });
 });
 
 $(document).on('turbolinks:load', function() {
   $('#sub-content-hide').click(function(){
-  $('#sub-content').fadeOut(500);
-  $('#main-content').delay(500).fadeIn(500);
+    $('#sub-content').fadeOut(500);
+    $('#main-content').delay(500).fadeIn(500);
   });
 });
 

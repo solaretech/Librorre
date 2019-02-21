@@ -1,4 +1,3 @@
-<div id="sub-content-hide" class="btn btn-sub2">ストーリに戻る</div>
 <% if story_comments.count == 0 %>
   <div class="comment-list clearfix">
     <p>まだ投稿はありません。</p>
@@ -18,6 +17,9 @@
               </span>
             <% end %>
            </p>
+           <% if admin? %>
+              <p>(リソース：<%= link_to comment.story.title, story_path(comment.story) %>)</p>
+            <% end %>
         </div>
       </div>
     <% end %>

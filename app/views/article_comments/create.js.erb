@@ -1,4 +1,4 @@
-$('#comment-submit-<%= @article.id %>').html("<%= j(render partial: '/article_comments/comments', locals:{article_comments: @article_comments}) %>");
+$('#article-comment-lists').html("<%= j(render partial: '/article_comments/comments', locals:{article_comments: @article_comments}) %>");
 $('#comment-flash').html("<%= j(render partial: '/layouts/flash', locals:{flash: flash}) %>");
 $(function(){
   setTimeout(function(){
