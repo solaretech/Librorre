@@ -32,7 +32,7 @@
             <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
             <%= f.attachment_field :image %>
             <% if @user.deleted_user == false %>
-              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn-danger" %>
+              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
             <% end %>
           </div>
           <div class="content-box-foot position-center">

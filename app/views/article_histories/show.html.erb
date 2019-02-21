@@ -15,7 +15,7 @@
         </div>
         <div class="content-box-foot">
           <div class="btn">
-            <%= link_to "この内容を現在の記事に反映", overwrite_article_path(@history), method: :patch %>
+            <%= link_to "この内容を現在の記事に反映", overwrite_article_path(@history), method: :patch, data: { confirm: '表示中の履歴を現在の記事に反映します。本当によろしいですか？' } %>
           </div>
         </div>
       </div>
