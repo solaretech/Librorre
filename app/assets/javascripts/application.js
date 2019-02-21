@@ -20,17 +20,15 @@
 //= require_tree .
 
 // ユーザーメニューのプルダウン
-
 $(document).on('turbolinks:load', function() {
   $('#user-menu').hover(function(){
-  $('#user-menu-topics').slideDown()
+  $('#user-menu-topics').show()
   },function(){
-  $('#user-menu-topics').slideUp()
+  $('#user-menu-topics').hide()
   });
 });
 
 // サブコンテンツの表示・非表示
-
 $(document).on('turbolinks:load', function() {
   $('#sub-content-show').click(function(){
   $('#main-content').fadeOut(500);
