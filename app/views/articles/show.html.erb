@@ -7,7 +7,7 @@
         <div class="content-box-body">
           <p>タグ：
             <% @article.categories.each do |category| %>
-              <%= link_to category.name, category_path(category) %>
+              <%= link_to category.name, category_path(category), class: 'category-tag' %>
             <% end %>
           </p>
           <h4>● 意味</h4>
@@ -44,7 +44,7 @@
       </div>
 
       <div id="sub-content" class ="content-box">
-        <h2 class ="content-box-head">ディスカッショント</h2>
+        <h2 class ="content-box-head">ディスカッション</h2>
         <div id="comment-flash">
           <%= render partial: '/layouts/flash', locals:{flash: flash} %>
         </div>
