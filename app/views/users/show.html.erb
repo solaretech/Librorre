@@ -14,6 +14,7 @@
             <p><%= @user.email %></p>
           <% end %>
           <p>ライブラリ保存数：<%= @libraries %></p>
+          <p><%= simple_format(@user.caption) %></p>
         </div>
         <div class="content-box-foot position-center">
           <!-- 利用者本人か、管理者のみ編集ボタン表示 -->
@@ -34,10 +35,12 @@
       <div id="sub-content" class ="content-box">
         <h2 class ="content-box-head user-edit">利用者情報の編集</h2>
         <%= form_for(@user) do |f| %>
-          <div class="content-box-body user-edit">
+          <div class="content-box-body">
             <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
             <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
-            <%= f.attachment_field :image %>
+            <p><%= f.text_area :caption, placeholder:"自己紹介", class: 'body-textarea-mini' %></p>
+            <p>プロフィール画像：</p>
+            <p><%= f.attachment_field :image %></p>
             <% if @user.deleted_user == false %>
               <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
             <% end %>
