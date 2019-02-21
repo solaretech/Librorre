@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :categories, only:[:show]
   resources :libraries, only:[:index, :create, :destroy]
 
+  get 'users/:id/admin' => 'users#admin_show', as: 'admin_user'
+  get 'users/:id/edit/admin' => 'users#admin_edit', as: 'admin_edit_user'
   patch 'users/d/:id' => 'users#unsubscribe', as: 'unsubscribe_user'
   patch 'articles/ow/:id' => 'article_histories#overwrite', as: 'overwrite_article'
 end

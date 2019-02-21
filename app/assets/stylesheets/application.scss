@@ -410,6 +410,17 @@ footer{
   opacity: 0.8;
 }
 
+#comment-flash{
+  position: relative;
+  width: 100%;
+}
+
+#comment-flash > #flash{
+  position: absolute;
+  top: -60px;
+  width: 100%;
+}
+
 .success {
   background-color: #58ACFA;
 }

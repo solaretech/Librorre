@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:update, :unsubscribe]
-  before_action :auth_admin, only: [:index]
+  before_action :auth_admin, only: [:index, :admin]
   before_action :unsubscribed_user?, only: [:top]
 
   def top
@@ -23,15 +23,23 @@ class UsersController < ApplicationController
     @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @libraries = @user.libraries.count
     @visiteds = @user.visiteds.reverse
-    return unless request.xhr?
-    case params[:type]
-    when 'story'
-      render "/stories/story_list"
-    end
   end
 
   def index
     @users = User.order(:created_at).reverse_order.search(params[:search])
+  end
+
+  def admin_show
+    @user = User.find(params[:id])
+    @story_comments = @user.story_comments.order(:created_at).reverse_order
+    @article_comments = @user.article_comments.order(:created_at).reverse_order
+  end
+
+  def admin_edit
+    @user = User.find(params[:id])
+    @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
+    @libraries = @user.libraries.count
+    @visiteds = @user.visiteds.reverse
   end
 
   def update
