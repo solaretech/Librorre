@@ -38,9 +38,12 @@
         </div>
         <% if user_signed_in? %>
           <div class="content-box-foot">
-            <% if @story.user == current_user %>
-              <div class="btn foot-left">
+            <% if same_user_or_admin?(@story.user) %>
+              <div class="btn btn-half">
                 <%= link_to "ストーリーの編集", edit_story_path(@story) %>
+              </div>
+              <div class="btn btn-half">
+                <%= link_to "ストーリーの削除", story_path(@story), method: :delete, data:{confirm: '本当に削除しますか？'} %>
               </div>
             <% end %>
             <div id="sub-content-show" class="btn btn-sub2 foot-left">

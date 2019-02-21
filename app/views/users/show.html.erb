@@ -10,15 +10,22 @@
           </div>
           <h3><%= @user.name %></h3>
           <!-- 利用者本人か、管理者のみメールアドレス表示 -->
-          <% if signed_in_user_or_admin?(@user) %>
+          <% if same_user_or_admin?(@user) %>
             <p><%= @user.email %></p>
           <% end %>
           <p>ライブラリ保存数：<%= @libraries %></p>
         </div>
         <div class="content-box-foot position-center">
           <!-- 利用者本人か、管理者のみ編集ボタン表示 -->
-          <% if signed_in_user_or_admin?(@user) %>
-            <div id="sub-content-show" class="btn btn-wide">利用者情報の編集</div>
+          <% if same_user_or_admin?(@user) %>
+            <% if current_user.admin == true %>
+              <div id="sub-content-show" class="btn btn-half">利用者情報の編集</div>
+              <%= link_to(admin_user_path(@user)) do %>
+                <div class="btn btn-half">利用者のコメント一覧</div>
+              <% end %>
+            <% else %>
+              <div id="sub-content-show" class="btn btn-wide">利用者情報の編集</div>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -32,7 +39,7 @@
             <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
             <%= f.attachment_field :image %>
             <% if @user.deleted_user == false %>
-              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
+              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
             <% end %>
           </div>
           <div class="content-box-foot position-center">
@@ -64,15 +71,15 @@
             <!-- 他人の情報を閲覧している場合、表示ユーザーが作成したストーリーを表示 -->
             <% else %>
               <h2 class ="content-box-head user-history">作成したストーリー</h2>
-              <div class="user-history">
-                <%= render '/stories/story_lists_wrapper', stories: @user.stories %>
+              <div id="stories" class="content-box-body user-history">
+                <%= render '/stories/story_lists_wrapper', stories: @stories %>
               </div>
             <% end %>
           <!-- 未ログイン時、表示ユーザーが作成したストーリーを表示 -->
           <% else %>
             <h2 class ="content-box-head user-history">作成したストーリー</h2>
-            <div class="user-history">
-              <%= render '/stories/story_lists_wrapper', stories: @user.stories %>
+            <div id="stories" class="content-box-body user-history">
+              <%= render '/stories/story_lists_wrapper', stories: @stories %>
             </div>
           <% end %>
       </div>

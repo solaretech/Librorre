@@ -7,8 +7,6 @@
         <div id="articles" class="content-box-body">
           <%= render '/articles/article_lists_wrapper', articles: @articles %>
         </div>
-        <div class="content-body-foot">
-        </div>
       </div>
     </div>
 
@@ -17,8 +15,6 @@
         <h2 class ="content-box-head">タグ：<%= @category.name %>を含むストーリー</h2>
         <div id="stories" class="content-box-body">
           <%= render '/stories/story_lists_wrapper', stories: @stories %>
-        </div>
-        <div class="content-body-foot">
         </div>
       </div>
     </div>
