@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:update, :unsubscribe]
+  before_action :ensure_authority, only: [:update, :unsubscribe]
   before_action :auth_admin, only: [:index, :admin]
   before_action :unsubscribed_user?, only: [:top]
 

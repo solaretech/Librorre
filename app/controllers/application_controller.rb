@@ -42,6 +42,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 作成者・管理者以外のアクセスを制限
+  # User#update
+  def ensure_authority
+    unless params[:id] == current_user.id
+      unless current_user.admin = true
+        redirect_to user_path(current_user), alert: '許可されないリクエストです。'
+      end
+    end
+  end
+
   # 管理者ログイン認証
   def auth_admin
     if user_signed_in?

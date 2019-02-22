@@ -20,6 +20,12 @@ class StoriesController < ApplicationController
 
   def edit
     @story = Story.find(params[:id])
+    unless @story.id == current_user.id
+      unless current_user.admin == true
+        redirect_to story_path(@story), alert: '許可されていないリクエストです。'
+        return
+      end
+    end
     @category_list = @story.categories.pluck(:name).join(",")
   end
 
@@ -41,6 +47,12 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
+    unless @story.id == current_user.id
+      unless current_user.admin == true
+        redirect_to story_path(@story), alert: '許可されていないリクエストです。'
+        return
+      end
+    end
     @category_list = params[:category_list].split(",")
     if @story.update(story_params)
       @story.save_story_categories(@category_list)

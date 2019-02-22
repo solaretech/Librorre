@@ -31,26 +31,28 @@
         </div>
       </div>
 
+      <% if same_user_or_admin?(@user) %>
       <!-- 編集ボタンクリック時に表示 -->
-      <div id="sub-content" class ="content-box">
-        <h2 class ="content-box-head user-edit">利用者情報の編集</h2>
-        <%= form_for(@user) do |f| %>
-          <div class="content-box-body">
-            <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
-            <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
-            <p><%= f.text_area :caption, placeholder:"自己紹介", class: 'body-textarea-mini' %></p>
-            <p>プロフィール画像：</p>
-            <p><%= f.attachment_field :image %></p>
-            <% if @user.deleted_user == false %>
-              <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
-            <% end %>
-          </div>
-          <div class="content-box-foot position-center">
-            <%= f.submit "更新", class:"btn btn-half" %>
-            <span id="sub-content-hide" class="btn btn-half">更新のキャンセル</span>
-          </div>
-        <% end %>
-      </div>
+        <div id="sub-content" class ="content-box">
+          <h2 class ="content-box-head user-edit">利用者情報の編集</h2>
+          <%= form_for(@user) do |f| %>
+            <div class="content-box-body">
+              <h3><%= f.text_field :name, placeholder:"変更後の名前" %></h3>
+              <p><%= f.text_field :email, placeholder:"変更後のメールアドレス" %></p>
+              <p><%= f.text_area :caption, placeholder:"自己紹介", class: 'body-textarea-mini' %></p>
+              <p>プロフィール画像：</p>
+              <p><%= f.attachment_field :image %></p>
+              <% if @user.deleted_user == false %>
+                <%= link_to "利用者情報の削除", unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger",data: { confirm: '削除後はログインできなくなります。本当に削除してもよろしいですか？' } %>
+              <% end %>
+            </div>
+            <div class="content-box-foot position-center">
+              <%= f.submit "更新", class:"btn btn-half" %>
+              <span id="sub-content-hide" class="btn btn-half">更新のキャンセル</span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div id="content-right" class="content-area col-md-6 col-xs-12">
