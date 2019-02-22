@@ -17,7 +17,9 @@
     </div>
 
     <header class="clearfix">
-      <h1 class="header-logo">LiBRORRE</h1>
+      <%= link_to(root_path) do %>
+        <img class="header-logo" src="/images/title-logo.png">
+      <% end %>
       <div class="header-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'header-search-form-area') do %>
           <div class="header-search-form">
