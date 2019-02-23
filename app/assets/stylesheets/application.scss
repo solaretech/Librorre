@@ -62,9 +62,14 @@ header{
 }
 
 .header-logo{
+  width: 225px;
   float: left;
   margin: 0;
-  height: 40px;
+}
+
+.header-logo-image{
+  width: 100%;
+  height: auto;
   line-height: 50px;
 }
 
@@ -386,6 +391,27 @@ footer{
   }
 }
 
+#switch-left, #switch-right{
+  display: none;
+  width: 100%;
+  margin-top: 6px;
+  &:hover{
+    text-decoration: underline;
+    color: #BDBDBD;
+  }
+}
+
+#switch-left{
+  text-align: left;
+  padding-left:10px;
+}
+
+#switch-right{
+  text-align: right;
+  padding-right: 10px;
+}
+
+
 /* 特殊リンク */
 
 .category-tag{
@@ -468,7 +494,7 @@ footer{
   }
 
   .container{
-    height: 75%;
+    height: calc(100% - 200px);
   }
 
   .header-logo, .header-search, .header-nav{
@@ -476,14 +502,18 @@ footer{
   }
 
   .header-logo{
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .header-logo-image{
+    width: 100%;
     height: auto;
-    line-height: 24px;
-    font-size: 24px;
   }
 
   .header-search{
     width: 90%;
-    margin: 4px auto;
+    margin: 0 auto;
     text-align: center;
     margin-bottom: 6px;
   }
@@ -491,6 +521,7 @@ footer{
   .header-search-form{
     height: 20px;
     line-height: 20px;
+    margin: 16px;
   }
 
   .header-search-form-textfield, .header-search-form-btn, .header-search-form-icon{
@@ -546,6 +577,10 @@ footer{
   .content-box-head{
     font-size: 20px;
     padding: 4px;
+  }
+
+  #switch-left, #switch-right{
+    display: block;
   }
 
 }
