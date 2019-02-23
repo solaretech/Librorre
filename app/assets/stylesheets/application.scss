@@ -513,7 +513,7 @@ footer{
 
   .header-search{
     width: 90%;
-    margin: 4px auto;
+    margin: 0 auto;
     text-align: center;
     margin-bottom: 6px;
   }
@@ -521,6 +521,7 @@ footer{
   .header-search-form{
     height: 20px;
     line-height: 20px;
+    margin: 16px;
   }
 
   .header-search-form-textfield, .header-search-form-btn, .header-search-form-icon{

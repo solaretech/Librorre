@@ -17,8 +17,10 @@
     </div>
 
     <header class="clearfix">
-      <%= link_to(root_path, class:'header-logo') do %>
-        <img class="header-logo" src="/images/title-logo.png">
+      <%= link_to(root_path) do %>
+        <div class="header-logo">
+          <img class="header-logo-image" src="/images/title-logo.png">
+        </div>
       <% end %>
       <div class="header-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'header-search-form-area') do %>
