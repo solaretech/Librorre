@@ -68,6 +68,37 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// レスポンシブ表示時のスイッチング
+$(document).on('turbolinks:load', function() {
+  // 左右それぞれのcontent-boxにあるヘッダーテキストを取得
+  var leftText = $('#content-left').find('.content-box-head').text();
+  var rightText = $('#content-right').find('.content-box-head').text();
+  // 左右それぞれにコンテンツがあるか確認。
+  if(rightText != null){
+    // 左右それぞれのフッター部分に要素追加。まずは要素自体を取得。
+    var leftBox = $('#content-left');
+    var rightBox = $('#content-right');
+    // 続いて、要素の終端にHTML要素を追加
+
+    leftBox.append('<div id="switch-right"></div>');
+    rightBox.append('<div id="switch-left"></div>');
+    //挿入したHTML要素にテキストを表示
+    $('#switch-right').html(rightText + '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>');
+    $('#switch-left').html('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' + leftText);
+
+    //左右切り替えスイッチ
+    $('#switch-right').click(function(){
+      $('#content-left').hide();
+      $('#content-right').show();
+    });
+    $('#switch-left').click(function(){
+      $('#content-right').hide();
+      $('#content-left').show();
+    });
+  }
+
+});
+
 // フラッシュメッセージ
 
 $(function(){
