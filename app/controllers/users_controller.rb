@@ -23,6 +23,8 @@ class UsersController < ApplicationController
     @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @libraries = @user.libraries.count
     @visiteds = @user.visiteds.reverse
+    @room_id = message_room_id(current_user, @user)
+    @messages = Message.recent_in_room(@room_id)
   end
 
   def index

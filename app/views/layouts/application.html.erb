@@ -58,6 +58,33 @@
         </div>
       </div>
 
+      <% elsif admin? %>
+
+      <div class="header-nav clearfix">
+        <div class="header-nav-list">
+          <%= link_to(users_path) do %>
+            <img class="header-nav-icon" src="/images/about.png" alt="使い方">
+            <p class="header-nav-text">利用者一覧</p>
+          <% end %>
+        </div>
+        <div class="header-nav-list">
+          <%= link_to(libraries_path) do %>
+            <img class="header-nav-icon" src="/images/library.png" alt="ライブラリ" width="40" height="40">
+            <p class="header-nav-text">ライブラリ</p>
+          <% end %>
+        </div>
+        <div id="user-menu" class="header-nav-list">
+          <img class="header-nav-icon" src="/images/story.png" alt="利用者" width="40" height="40">
+          <ul class="header-nav-text">
+            <li><%= current_user.name %> ▼</li>
+            <ul id="user-menu-topics">
+              <li><%= link_to '利用者情報', user_path(current_user) %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+
       <% else %>
 
       <div class="header-nav clearfix">

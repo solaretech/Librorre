@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_120645) do
+ActiveRecord::Schema.define(version: 2019_02_23_104408) do
 
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 2019_02_21_120645) do
   create_table "libraries", force: :cascade do |t|
     t.integer "user_id"
     t.integer "story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "from_id"
+    t.integer "to_id"
+    t.integer "room_id"
+    t.integer "article_id"
+    t.integer "story_id"
+    t.text "comment"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
