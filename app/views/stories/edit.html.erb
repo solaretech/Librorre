@@ -22,9 +22,14 @@
                 <%= link_to_add_association '見出しの追加',f, :story_topics, class: 'btn btn-add' %>
               </div>
             </div>
+            <div>
+              <%= link_to "ストーリーの削除", story_path(@story), method: :delete, data:{confirm: '本当に削除しますか？'}, class: 'btn btn-danger btn-half' %>
+            </div>
           </div>
           <div class="content-box-foot">
-            <%= link_to "戻る", articles_path, class: "btn" %> <%= f.submit "保存", class: "btn" %>
+            <div>
+              <%= link_to "戻る", articles_path, class: "btn" %> <%= f.submit "保存", class: "btn" %>
+            </div>
           </div>
           <% end %>
       </div>
