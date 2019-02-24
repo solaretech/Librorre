@@ -75,9 +75,9 @@
         </div>
         <div class="content-box-foot">
           <% if user_signed_in? %>
-            <%= link_to(new_article_stories_path(@article), class:'btn btn-sub2') do %>
-              <p>ストーリーの作成</p>
-            <% end %>
+            <div>
+              <%= link_to 'ストーリーの作成', new_article_stories_path(@article), class:'btn btn-sub2' %>
+            </div>
           <% else %>
             <p class="foot-not-active">
               ストーリーの作成(ログイン時のみ)

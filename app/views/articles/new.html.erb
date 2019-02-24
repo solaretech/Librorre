@@ -17,7 +17,9 @@
             <%= f.text_area :cause, class:"body-textarea" %>
           </div>
           <div class="content-box-foot">
-            <%= link_to "戻る", articles_path, class: "btn" %><%= f.submit "保存", class: "btn" %>
+            <div>
+              <%= link_to "戻る", articles_path, class: "btn" %><%= f.submit "保存", class: "btn" %>
+            </div>
           </div>
         <% end %>
       </div>

@@ -8,9 +8,9 @@
         </div>
         <div class="content-box-foot">
           <% if user_signed_in? %>
-            <%= link_to(new_article_path, class:'btn btn-sub2') do %>
-              <p>エラー記事の作成</p>
-            <% end %>
+            <div>
+              <%= link_to 'エラー記事の作成' ,new_article_path, class:'btn btn-sub'%>
+            </div>
           <% else %>
             <p class="foot-not-active">
               エラー記事の作成(ログイン時のみ)

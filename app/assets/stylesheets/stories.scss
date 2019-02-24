@@ -10,6 +10,18 @@
   margin: 10px 10px;
 }
 
+.story-header{
+  width: 100%;
+}
+
+.story-header > p{
+  float: left;
+}
+
+.story-edit-library{
+  float:right;
+}
+
 .story-topic-title{
   font-weight: bold;
   margin: 12px 0;
