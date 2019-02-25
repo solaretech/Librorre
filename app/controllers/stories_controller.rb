@@ -20,7 +20,7 @@ class StoriesController < ApplicationController
 
   def edit
     @story = Story.find(params[:id])
-    unless @story.id == current_user.id
+    unless @story.user.id == current_user.id
       unless current_user.admin == true
         redirect_to story_path(@story), alert: '許可されていないリクエストです。'
         return
@@ -38,8 +38,6 @@ class StoriesController < ApplicationController
       @story.save_story_categories(@category_list)
       redirect_to story_path(@story), success: 'ストーリーを作成しました。'
     else
-      @story_topic = @story.story_topics.build
-      @story_body = @story_topic.story_bodies.build
       flash.now[:alert] = 'ストーリーの作成に失敗しました。'
       render :new
     end
@@ -65,8 +63,8 @@ class StoriesController < ApplicationController
 
   def destroy
     @story = Story.find(params[:id])
-    article = story.article
-    if story.destroy
+    article = @story.article
+    if @story.destroy
       redirect_to article_path(article), success: 'ストーリーを削除しました'
     else
       @category_list = params[:category_list].split(",")
