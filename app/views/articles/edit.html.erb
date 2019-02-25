@@ -5,6 +5,7 @@
         <h2 class="content-box-head">項目の編集</h2>
         <%= form_for(@article) do |f| %>
           <div class="content-box-body">
+            <%= render '/layouts/validation_error', model: f.object %>
             <h5>エラー名：
             <%= f.text_field :title, placeholder: "エラー名を入力" %></h5>
             <div class="tag-list">

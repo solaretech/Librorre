@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   has_many :article_histories, dependent: :destroy
 
   validates :title, presence: true, length:{maximum: 50}
+  validates :mean, presence: true
+  validates :cause, presence: true
 
   def self.search(search)
     if search
