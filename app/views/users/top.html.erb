@@ -5,7 +5,7 @@
     <div id="content-left" class="content-area col-md-6 col-xs-12">
       <div class ="content-box top-guide">
         <h2 class="content-box-head">よく見られているストーリー</h2>
-        <div class="content-box-body">
+        <div class="content-box-body position-center">
           <h3>- なんかいい感じのキャッチコピー</h3>
           <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
           <h3>- 会員登録するといいことあるよ〜的な勧誘</h3>
@@ -17,7 +17,7 @@
     <div id="content-right" class="content-area col-md-6">
       <div class ="content-box">
         <h2 class ="content-box-head">新着ストーリー</h2>
-        <div id="stories" class="content-box-body">
+        <div class="content-box-body">
           <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
       </div>
@@ -28,13 +28,13 @@
     <div id="content-left" class="content-area col-md-6 col-xs-12">
       <div class ="content-box">
         <h2 class="content-box-head">LiBRORREへようこそ</h2>
-        <div class="content-box-body">
-          <h3>- 世界はエラーで出来ている。</h3>
+        <div class="content-box-body position-center margin-expand">
+          <h3>世界はエラーで出来ている。</h3>
           <p>問題発生を示すエラーメッセージ。<br/>
-            そのエラーには原因があり、解決策が存在します。<br/>
+            そのエラーには原因があり、必ず解決策が存在します。<br/>
             LiBRORREは、あなたがエラーメッセージから解決策を探る<br/>
             助けになるために生まれた、エラー検索サイトです。</p>
-          <h3>-私たちはエラーで繋がっている。</h3>
+          <h3>私たちはエラーで繋がっている。</h3>
           <p>
             あなたが目の当たりにするエラーメッセージを前に悩む人は<br/>
             きっとあなただけではありません。<br/>
@@ -43,7 +43,7 @@
             また、あなたがエラーに悩む時、誰かのプロセスを辿って<br/>
             問題を解決できるかもしれません。
           </p>
-          <h4>LiBRORREをフル活用するに、会員登録をお勧めします。</h4>
+          <h4>LiBRORREをフルに使いましょう。</h4>
           <%= link_to(new_user_registration_path) do %>
             <div class="btn btn-wide">会　員　登　録</div>
           <% end %>
@@ -59,7 +59,7 @@
     <div id="content-right" class="content-area col-md-6">
       <div class ="content-box">
         <h2 class ="content-box-head">新着ストーリー</h2>
-        <div id="library-stories" class="content-box-body">
+        <div class="content-box-body">
           <%= render '/stories/story_lists_wrapper', stories: @stories %>
         </div>
       </div>

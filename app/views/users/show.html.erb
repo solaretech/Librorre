@@ -83,7 +83,7 @@
           <!-- 未ログイン時、表示ユーザーが作成したストーリーを表示 -->
           <% else %>
             <h2 class ="content-box-head user-history">作成したストーリー</h2>
-            <div id="stories" class="content-box-body user-history">
+            <div class="content-box-body user-history">
               <%= render '/stories/story_lists_wrapper', stories: @stories %>
             </div>
           <% end %>
