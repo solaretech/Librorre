@@ -6,10 +6,7 @@
       <div class ="content-box top-guide">
         <h2 class="content-box-head">よく見られているストーリー</h2>
         <div class="content-box-body position-center">
-          <h3>- なんかいい感じのキャッチコピー</h3>
-          <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-          <h3>- 会員登録するといいことあるよ〜的な勧誘</h3>
-          <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+          <%= render '/visits/visit_lists_wrapper', visits: @visits %>
         </div>
       </div>
     </div>

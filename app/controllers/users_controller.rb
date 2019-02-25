@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def top
     @articles = Article.page(params[:page]).per(10)
     @stories = Story.order(:created_at).reverse_order.page(params[:page]).per(10)
+    @visits = Story.find(Visited.group(:story_id).order('count(story_id) desc').limit(5).pluck(:story_id))
     return unless request.xhr?
     case params[:type]
     when 'article'
