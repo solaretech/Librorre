@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:created_at).reverse_order.search(params[:search])
+    @users = User.order(:created_at).reverse_order.page(params[:page]).per(50).search(params[:search])
   end
 
   def admin_show
