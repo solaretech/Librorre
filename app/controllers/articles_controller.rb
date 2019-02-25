@@ -43,6 +43,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.user_id = current_user.id
     @old_article = @article
     if @article.update(article_params)
       create_article_history(@old_article)

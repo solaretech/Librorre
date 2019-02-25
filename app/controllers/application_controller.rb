@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def create_article_history(old_article)
     @new_history = ArticleHistory.new
     @new_history.article_id = old_article.id
-    @new_history.user_id = current_user.id
+    @new_history.user_id = old_article.user_id
     @new_history.title = old_article.title
     @new_history.mean = old_article.mean
     @new_history.cause = old_article.cause
