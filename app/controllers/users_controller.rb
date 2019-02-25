@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :ensure_authority, only: [:update, :unsubscribe]
   before_action :auth_admin, only: [:index, :admin]
-  before_action :unsubscribed_user?, only: [:top]
+  before_action :unsubscribed_user?
 
   def top
     @articles = Article.page(params[:page]).per(10)
@@ -21,6 +21,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # 管理者マイページは、管理者以外に表示させない
+    if user_signed_in?
+      if @user.admin && current_user.admin == false
+        redirect_to root_path, alert: '許可されていないリクエストです。'
+        return
+      end
+    end
     @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @libraries = @user.libraries.count
     @visiteds = @user.visiteds.reverse
@@ -34,13 +41,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @story_comments = @user.story_comments.order(:created_at).reverse_order
     @article_comments = @user.article_comments.order(:created_at).reverse_order
-  end
-
-  def admin_edit
-    @user = User.find(params[:id])
-    @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
-    @libraries = @user.libraries.count
-    @visiteds = @user.visiteds.reverse
   end
 
   def update
