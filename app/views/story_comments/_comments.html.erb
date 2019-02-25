@@ -1,14 +1,20 @@
 <% if story_comments.count == 0 %>
-  <div class="comment-list clearfix">
+  <div class="content-list clearfix">
     <p>まだ投稿はありません。</p>
   </div>
 <% else %>
   <% story_comments.each do |comment| %>
     <% if comment.user.deleted_user == false %>
-      <div class="content-list clearfix">
+      <div class="comment-list clearfix">
         <%= attachment_image_tag comment.user, :image, :fill, 64, 64, class: 'comment-user-thumb' %>
         <div class="comment-user-text">
-          <p class="comment-user-name"><%= comment.user.name %></p>
+          <p class="comment-user-name">
+          <% if comment.user.admin == true %>
+            <%= comment.user.name %>
+          <% else %>
+            <%= link_to comment.user.name, user_path(comment.user) %>
+          <% end %>
+          </p>
           <p><%= simple_format(comment.comment) %></p>
           <p><%= daytime_localize(comment.updated_at) %>
             <% if same_user_or_admin?(comment.user) %>

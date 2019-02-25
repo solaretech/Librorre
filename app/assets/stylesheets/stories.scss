@@ -7,7 +7,14 @@
   background-color: #0B614B;
   color: #F7F2E0;
   padding: 10px;
-  margin: 10px 10px;
+  margin: 0 10px;
+}
+
+code{
+  background-color: #0B614B;
+  color: #F7F2E0;
+  word-break: normal;
+  overflow: scroll;
 }
 
 .story-header{
@@ -30,6 +37,11 @@
 .story-body-area{
   border-left: solid 6px #DEB580;
   padding-left: 32px;
+}
+
+.story-body-area > p{
+  margin: 0;
+  padding: 10px 0;
 }
 
 .comment-user-thumb{

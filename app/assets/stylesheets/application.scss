@@ -26,7 +26,7 @@ $footer-height: 20px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  word-break : break-all;
+  word-wrap: normal;
 }
 
 html, body {
@@ -99,14 +99,19 @@ li{
 #sub-content-show, #sub-content-hide{
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
-    color: #BDBDBD;
+    color: white;
   }
 }
 
-#switch-left, #switch-right{
+#switch-box, #switch-left, #switch-right{
   display: none;
+}
+
+#switch-box{
   width: 100%;
+}
+
+#switch-left, #switch-right{
   margin-top: 6px;
   &:hover{
     text-decoration: underline;
@@ -115,12 +120,12 @@ li{
 }
 
 #switch-left{
-  text-align: left;
+  float: left;
   padding-left:10px;
 }
 
 #switch-right{
-  text-align: right;
+  float: right;
   padding-right: 10px;
 }
 
@@ -314,17 +319,24 @@ footer{
 
 /* リスト関係 */
 
-.content-list, .story-list, .comment-list{
+.content-list{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-bottom: solid 1px #BDBDBD;
+}
+
+.comment-list{
   width: 100%;
   padding: 10px;
   border-bottom: solid 1px #BDBDBD;
 }
 
-.content-list:hover, .story-list:hover, .comment-list:hover{
+.content-list:hover, .comment-list:hover{
   background-color: #FAFAFA;
 }
 
-.content-list:last-child, .story-list:last-child, .comment-list:last-child{
+.content-list:last-child, .comment-list:last-child{
   width: 100%;
   border-bottom: none;
 }
@@ -413,9 +425,13 @@ footer{
 }
 
 
-/* ポジション指定 */
+/* レイアウト指定 */
 .position-center{
   text-align: center;
+}
+
+.font-bold{
+  font-weight: bold;
 }
 
 .margin-expand > h3, .margin-expand > h4{
@@ -462,7 +478,7 @@ footer{
   width: 100%;
 }
 
-.success {
+.success, .notice{
   background-color: #58ACFA;
 }
 
@@ -602,7 +618,7 @@ footer{
     margin: 18px;
   }
 
-  #switch-left, #switch-right{
+  #switch-box, #switch-left, #switch-right{
     display: block;
   }
 
