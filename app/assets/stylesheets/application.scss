@@ -468,21 +468,11 @@ footer{
 
 .alert {
   background-color: red;
+  color: white;
+  opacity: 0.8;
+
 }
 
-.alert-devise h2{
-  color: red;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.alert-devise li{
-  color: red;
-  font-size: 15px;
-  display: block;
-  width: 100%;
-  padding: 0;
-}
 
 /* レスポンシブ */
 
