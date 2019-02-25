@@ -36,7 +36,7 @@ class StoriesController < ApplicationController
     if @story.save
       @category_list = params[:category_list].split(",")
       @story.save_story_categories(@category_list)
-      redirect_to story_path(@story), success: 'ストーリーを作成しました。'
+      redirect_to story_path(@story), notice: 'ストーリーを作成しました。'
     else
       flash.now[:alert] = 'ストーリーの作成に失敗しました。'
       render :new
@@ -45,7 +45,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
-    unless @story.id == current_user.id
+    unless @story.user_id == current_user.id
       unless current_user.admin == true
         redirect_to story_path(@story), alert: '許可されていないリクエストです。'
         return
@@ -54,7 +54,7 @@ class StoriesController < ApplicationController
     @category_list = params[:category_list].split(",")
     if @story.update(story_params)
       @story.save_story_categories(@category_list)
-      redirect_to story_path(@story), success: 'ストーリーを更新しました'
+      redirect_to story_path(@story), notice: 'ストーリーを更新しました'
     else
       flash.now[:alert] = 'ストーリーの更新に失敗しました。'
       render :edit
@@ -65,7 +65,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     article = @story.article
     if @story.destroy
-      redirect_to article_path(article), success: 'ストーリーを削除しました'
+      redirect_to article_path(article), notice: 'ストーリーを削除しました'
     else
       @category_list = params[:category_list].split(",")
       flash.now[:alert] = 'ストーリーの削除に失敗しました。'
