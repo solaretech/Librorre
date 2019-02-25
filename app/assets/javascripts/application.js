@@ -81,8 +81,8 @@ $(document).on('turbolinks:load', function() {
     var rightBox = $('#content-right');
     // 続いて、要素の終端にHTML要素を追加
 
-    leftBox.append('<div id="switch-right"></div>');
-    rightBox.append('<div id="switch-left"></div>');
+    leftBox.append('<div class="switch-box clearfix"><div id="switch-right"></div></div>');
+    rightBox.append('<div class="switch-box clearfix"><div id="switch-left"></div></div>');
     //挿入したHTML要素にテキストを表示
     $('#switch-right').html(rightText + '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>');
     $('#switch-left').html('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' + leftMainText);

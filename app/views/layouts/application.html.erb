@@ -53,8 +53,12 @@
           <ul class="header-nav-text">
             <li><%= current_user.name %> ▼</li>
             <ul id="user-menu-topics">
-              <li><%= link_to '利用者情報', user_path(current_user) %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <%= link_to(user_path(current_user)) do %>
+                <li>利用者情報</li>
+              <% end %>
+              <%= link_to(destroy_user_session_path, method: :delete) do %>
+                <li>ログアウト</li>
+              <% end %>
             </ul>
           </ul>
         </div>
@@ -87,6 +91,16 @@
 
     </header>
     <%= yield %>
+    <div class="footer-search clearfix">
+        <%= form_tag(articles_path, method: :get, class: 'footer-search-form-area') do %>
+          <div class="footer-search-form">
+            <%= text_field_tag :search, '', class: 'footer-search-form-textfield', placeholder:'キーワードを入力してください' %>
+            <%= button_tag(type: 'submit', class: 'footer-search-form-btn') do %>
+              <img class="footer-search-form-icon" src="/images/search.png" alt="検索">
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <footer>
       ©️2019 Kazuki Kakuya
     </footer>

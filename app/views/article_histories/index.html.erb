@@ -13,7 +13,13 @@
             <% @histories.each do |history| %>
             <tr>
               <td><%= link_to daytime_localize(history.created_at), article_history_path(history) %></td>
-              <td><%= link_to history.user.name, user_path(history.user) %></td>
+              <td>
+                <% if history.user.admin == true %>
+                  <%= history.user.name %>
+                <% else %>
+                  <%= link_to history.user.name, user_path(history.user) %>
+                <% end %>
+              </td>
             </tr>
             <% end %>
           </table>

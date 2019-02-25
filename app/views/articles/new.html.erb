@@ -5,6 +5,7 @@
         <h2 class="content-box-head">項目の追加</h2>
         <%= form_for(@article) do |f| %>
           <div class="content-box-body">
+            <%= render '/layouts/validation_error', model: f.object %>
             <h4><%= f.text_field :title, placeholder: "エラー名を入力" %></h4>
             <div class="tag-list">
               タグ：
@@ -18,7 +19,7 @@
           </div>
           <div class="content-box-foot">
             <div>
-              <%= link_to "戻る", articles_path, class: "btn" %><%= f.submit "保存", class: "btn" %>
+              <%= link_to "戻る", articles_path, class: "btn btn-half btn-sub" %><%= f.submit "保存", class: "btn btn-half" %>
             </div>
           </div>
         <% end %>
