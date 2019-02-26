@@ -32,6 +32,11 @@ class StoriesController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @story = @article.stories.new(story_params)
+    unless topics_and_bodies_exists?(@story)
+      flash.now[:alert] = '見出し、または本文が不足しています。'
+      render :new
+      return
+    end
     @story.user_id = current_user.id
     if @story.save
       @category_list = params[:category_list].split(",")
@@ -45,11 +50,18 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
+    # 管理者、もしくは作成者本人以外はアクセス制限
     unless @story.user_id == current_user.id
       unless current_user.admin == true
         redirect_to story_path(@story), alert: '許可されていないリクエストです。'
         return
       end
+    end
+    # 見出し、本文が一つもない場合、エラー表示
+    unless topics_and_bodies_exists?(@story)
+      flash.now[:alert] = '見出し、または本文が不足しています。'
+      render :edit
+      return
     end
     @category_list = params[:category_list].split(",")
     if @story.update(story_params)
@@ -71,6 +83,20 @@ class StoriesController < ApplicationController
       flash.now[:alert] = 'ストーリーの削除に失敗しました。'
       render :edit
     end
+  end
+
+  def topics_and_bodies_exists?(story)
+    # 見出しが無い場合にエラーを表示
+    if story.story_topics.blank?
+      return false
+    end
+    # 見出しに対して本文が一つもない場合にエラーを表示
+    story.story_topics.each do |topic|
+      if topic.story_bodies.blank?
+        return false
+      end
+    end
+    return true
   end
 
   private
