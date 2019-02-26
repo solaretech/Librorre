@@ -84,8 +84,8 @@ $(document).on('turbolinks:load', function() {
     leftBox.append('<div class="switch-box clearfix"><div id="switch-right"></div></div>');
     rightBox.append('<div class="switch-box clearfix"><div id="switch-left"></div></div>');
     //挿入したHTML要素にテキストを表示
-    $('#switch-right').html(rightText + '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>');
-    $('#switch-left').html('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' + leftMainText);
+    $('#switch-right').html('ページ2: ' + rightText + '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>');
+    $('#switch-left').html('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> ページ1:' + leftMainText);
   }
   //左右切り替えスイッチ
   $('#switch-right').click(function(){
@@ -102,8 +102,9 @@ $(document).on('turbolinks:load', function() {
 });
 
 // フラッシュメッセージ
-
-$(function(){
-  setTimeout(function(){
-  $('#flash').fadeOut()}, 5000)
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    setTimeout(function(){
+    $('#flash').fadeOut()}, 5000)
+  })
 });

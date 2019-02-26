@@ -26,7 +26,7 @@ $footer-height: 20px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  word-wrap: normal;
+  word-wrap: break-word;
 }
 
 html, body {
@@ -45,6 +45,19 @@ li{
   list-style: none;
 }
 
+pre{
+  padding: 0;
+  background-color: #0B614B;
+  margin: 0;
+}
+
+pre > p{
+  margin: 10px;
+  color: #F7F2E0;;
+  line-height: 1.8;
+  overflow: scroll;
+}
+
 /* Tag-itヘルプメッセージ非表示 */
 
 .ui-helper-hidden-accessible {
@@ -61,6 +74,7 @@ li{
   display: none;
   width: 175%;
   position: absolute;
+  left: -45px;
   border: solid 1px #A4A4A4;
   padding: 10px;
   background-color: white;
@@ -393,9 +407,9 @@ footer{
 }
 
 .btn-add{
-  background-color: #3F7CAC;
+  background-color: #A9D0F5;
+  color: #576B6F;
   margin: 5px;
-  color: #0E1116;
 }
 
 .btn-add:hover{
@@ -486,15 +500,29 @@ footer{
   background-color: red;
   color: white;
   opacity: 0.8;
-
 }
 
 
 /* レスポンシブ */
 
+.display-pc{
+  display: block;
+}
+
+.display-mobile{
+  display: none;
+}
+
 @media screen and (max-width:991px){
   br {
     display: none;
+  }
+  .display-pc{
+    display: none;
+  }
+
+  .display-mobile{
+    display: block;
   }
 
   #content-right{
@@ -534,6 +562,14 @@ footer{
 
   .header-search{
     display: none;
+  }
+
+  .header-nav-list{
+    margin-right: 10px;
+  }
+
+  .header-nav-text{
+    margin-right: 0;
   }
 
   .footer-search{

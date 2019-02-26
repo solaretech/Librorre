@@ -27,6 +27,16 @@ class UsersController < ApplicationController
         redirect_to root_path, alert: '許可されていないリクエストです。'
         return
       end
+    else
+      if @user.admin
+        redirect_to root_path, alert: '許可されていないリクエストです。'
+        return
+      end
+    end
+    # 退会済みユーザーは表示させない
+    if @user.deleted_user
+      redirect_to root_path, alert: '退会済みのユーザーです。'
+      return
     end
     @stories = @user.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @libraries = @user.libraries.count
