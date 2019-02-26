@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_authority, only: [:update, :unsubscribe]
-  before_action :auth_admin, only: [:index, :admin]
+  before_action :auth_admin, only: [:index, :admin, :admin_show, :admin_comments]
   before_action :unsubscribed_user?
 
   def top
@@ -51,6 +51,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @story_comments = @user.story_comments.order(:created_at).reverse_order
     @article_comments = @user.article_comments.order(:created_at).reverse_order
+  end
+
+  def admin_comments
+    @article_comments = ArticleComment.order(:created_at).reverse_order.page(params[:page]).per(50).search(params[:search])
+    @story_comments = StoryComment.order(:created_at).reverse_order.page(params[:page]).per(50).search(params[:search])
   end
 
   def update

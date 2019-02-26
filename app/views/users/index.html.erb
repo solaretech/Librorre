@@ -5,13 +5,13 @@
         <h2 class="content-box-head">ユーザー一覧</h2>
         <div class="content-box-body">
           <%= form_tag(users_path, method: :get, class: 'header-search-form-area') do %>
-          <div class="header-search-form">
-            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
-            <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
-              <img class="header-search-form-icon" src="/images/search.png" alt="検索">
-            <% end %>
-          </div>
-        <% end %>
+            <div class="header-search-form">
+              <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
+              <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
+                <img class="header-search-form-icon" src="/images/search.png" alt="検索">
+              <% end %>
+            </div>
+          <% end %>
           <table class="table">
             <tr>
               <th></th>

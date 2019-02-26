@@ -33,7 +33,29 @@
         <% end %>
       </div>
 
-      <% if user_signed_in? %>
+      <% if admin? %>
+      <div class="header-nav clearfix">
+        <div class="header-nav-list">
+          <%= link_to(users_path) do %>
+            <img class="header-nav-icon" src="/images/story.png" alt="利用者">
+            <p class="header-nav-text">ユーザー一覧</p>
+          <% end %>
+        </div>
+        <div class="header-nav-list">
+          <%= link_to(admin_comments_path) do %>
+            <img class="header-nav-icon" src="/images/library.png" alt="ライブラリ">
+            <p class="header-nav-text">コメント検索</p>
+          <% end %>
+        </div>
+        <div class="header-nav-list">
+          <%= link_to(destroy_user_session_path, method: :delete) do %>
+            <img class="header-nav-icon" src="/images/logout.png" alt="ログアウト">
+            <p class="header-nav-text">ログアウト</p>
+          <% end %>
+        </div>
+      </div>
+
+      <% elsif user_signed_in? %>
 
       <div class="header-nav clearfix">
         <div class="header-nav-list">
