@@ -65,7 +65,7 @@
               <h2 class ="content-box-head user-history">最近閲覧したストーリー</h2>
               <div class="content-box-body user-history">
                 <% @visiteds.each do |visited| %>
-                  <div class="story-list clearfix">
+                  <div class="content-list clearfix">
                     <h4><%= link_to visited.story.title, story_path(visited.story) %> / <%= link_to visited.story.user.name, user_path(visited.story.user) %></h4>
                     <p>
                       <%= daytime_localize(visited.story.created_at) %>/

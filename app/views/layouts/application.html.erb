@@ -25,7 +25,7 @@
       <div class="header-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'header-search-form-area') do %>
           <div class="header-search-form">
-            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
+            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力' %>
             <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <% end %>
@@ -135,9 +135,9 @@
       <div class="footer-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'footer-search-form-area') do %>
           <div class="footer-search-form">
-            <%= text_field_tag :search, '', class: 'footer-search-form-textfield', placeholder:'キーワードを入力してください' %>
+            <%= text_field_tag :search, '', class: 'footer-search-form-textfield', placeholder:'キーワードを入力' %>
             <%= button_tag(type: 'submit', class: 'footer-search-form-btn') do %>
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-search footer-search-form-icon" aria-hidden="true"></span>
             <% end %>
           </div>
         <% end %>
