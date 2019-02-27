@@ -19,7 +19,7 @@
     <header class="clearfix">
       <%= link_to(root_path) do %>
         <div class="header-logo">
-          <img class="header-logo-image" src="/images/title-logo.png">
+          <img class="header-logo-image" src="/images/logo.png">
         </div>
       <% end %>
       <div class="header-search clearfix">
@@ -27,7 +27,7 @@
           <div class="header-search-form">
             <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
             <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
-              <img class="header-search-form-icon" src="/images/search.png" alt="検索">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <% end %>
           </div>
         <% end %>
@@ -37,20 +37,26 @@
       <div class="header-nav clearfix">
         <div class="header-nav-list">
           <%= link_to(users_path) do %>
-            <img class="header-nav-icon" src="/images/story.png" alt="利用者">
-            <p class="header-nav-text">ユーザー一覧</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              ユーザー一覧
+            </p>
           <% end %>
         </div>
         <div class="header-nav-list">
           <%= link_to(admin_comments_path) do %>
-            <img class="header-nav-icon" src="/images/library.png" alt="ライブラリ">
-            <p class="header-nav-text">コメント検索</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+              コメント検索
+            </p>
           <% end %>
         </div>
         <div class="header-nav-list">
           <%= link_to(destroy_user_session_path, method: :delete) do %>
-            <img class="header-nav-icon" src="/images/logout.png" alt="ログアウト">
-            <p class="header-nav-text">ログアウト</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+              ログアウト
+            </p>
           <% end %>
         </div>
       </div>
@@ -60,20 +66,25 @@
       <div class="header-nav clearfix">
         <div class="header-nav-list">
           <%= link_to(about_path) do %>
-            <img class="header-nav-icon" src="/images/about.png" alt="使い方">
-            <p class="header-nav-text">使い方</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+              使い方
+            </p>
           <% end %>
         </div>
         <div class="header-nav-list">
           <%= link_to(libraries_path) do %>
-            <img class="header-nav-icon" src="/images/library.png" alt="ライブラリ" width="40" height="40">
-            <p class="header-nav-text">ライブラリ</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-book" aria-hidden="true"></span>ライブラリ
+            </p>
           <% end %>
         </div>
         <div id="user-menu" class="header-nav-list">
-          <img class="header-nav-icon" src="/images/story.png" alt="利用者" width="40" height="40">
           <ul class="header-nav-text">
-            <li><%= current_user.name %> ▼</li>
+            <li>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <%= current_user.name %> ▼
+            </li>
             <ul id="user-menu-topics">
               <%= link_to(user_path(current_user)) do %>
                 <li>利用者情報</li>
@@ -91,20 +102,26 @@
       <div class="header-nav clearfix">
         <div class="header-nav-list">
           <%= link_to(about_path) do %>
-            <img class="header-nav-icon" src="/images/about.png" alt="使い方" width="40" height="40">
-            <p class="header-nav-text">使い方</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+              使い方
+            </p>
           <% end %>
         </div>
         <div class="header-nav-list">
           <%= link_to(new_user_registration_path) do %>
-            <img class="header-nav-icon" src="/images/sign_up.png" alt="登録" width="40" height="40">
-            <p class="header-nav-text">登録</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              登録
+            </p>
           <% end %>
         </div>
         <div class="header-nav-list">
           <%= link_to(new_user_session_path) do %>
-            <img class="header-nav-icon" src="/images/sign_in.png" alt="ログイン" width="40" height="40">
-            <p class="header-nav-text">ログイン</p>
+            <p class="header-nav-text">
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+              ログイン
+            </p>
           <% end %>
         </div>
       </div>
@@ -113,17 +130,18 @@
 
     </header>
     <%= yield %>
-    <div class="footer-search clearfix">
+
+    <footer>
+      <div class="footer-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'footer-search-form-area') do %>
           <div class="footer-search-form">
             <%= text_field_tag :search, '', class: 'footer-search-form-textfield', placeholder:'キーワードを入力してください' %>
             <%= button_tag(type: 'submit', class: 'footer-search-form-btn') do %>
-              <img class="footer-search-form-icon" src="/images/search.png" alt="検索">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <% end %>
           </div>
         <% end %>
       </div>
-    <footer>
       ©️2019 Kazuki Kakuya
     </footer>
 

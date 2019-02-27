@@ -23,7 +23,7 @@
           <% if user_signed_in? %>
           <div class="clearfix">
             <%= link_to "エラー情報の編集", edit_article_path(@article), class:"btn btn-half" %>
-            <div id="sub-content-show" class="btn btn-sub btn-half">ディスカッション</div>
+            <div id="sub-content-show" class="btn btn-sub2 btn-half">ディスカッション</div>
           </div>
           <% end %>
           <% if admin? %>
@@ -43,7 +43,7 @@
       <div id="sub-content" class ="content-box">
         <h2 class ="content-box-head">ディスカッション</h2>
         <div class="content-box-body">
-          <p id="sub-content-hide">ディスカッションを終了する</p>
+          <p id="sub-content-hide" class="btn btn-sub2">ディスカッションを終了する</p>
           <div id="article-comment-lists">
             <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments} %>
           </div>
@@ -69,7 +69,7 @@
         <div class="content-box-foot">
           <% if user_signed_in? %>
             <div>
-              <%= link_to 'ストーリーの作成', new_article_stories_path(@article), class:'btn btn-sub2' %>
+              <%= link_to 'ストーリーの作成', new_article_stories_path(@article), class:'btn' %>
             </div>
           <% else %>
             <p class="foot-not-active">

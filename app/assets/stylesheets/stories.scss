@@ -54,3 +54,9 @@
 .story-list-user-thumb{
   float: left;
 }
+
+@media screen and (max-width:991px){
+  .story-header{
+    margin-top: 10px;
+  }
+}
