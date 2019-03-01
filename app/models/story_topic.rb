@@ -4,6 +4,6 @@ class StoryTopic < ApplicationRecord
 
   accepts_nested_attributes_for :story_bodies, allow_destroy: true
 
-  validates :title, presence: true, length:{maximum: 50}
+  validates :title, presence: true, length:{maximum: 75}
 
 end
