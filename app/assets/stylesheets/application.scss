@@ -31,6 +31,22 @@ $footer-height: 20px;
 ;
 }
 
+input[type="text"], textarea{
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: solid 1px #A4A4A4;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea{
+  border: solid 1px #A4A4A4;
+}
+
 html, body {
   height: 100%;
   color: #576B6F;
@@ -59,6 +75,13 @@ pre > p{
   color: #F7F2E0;;
   line-height: 1.8;
   overflow: scroll;
+}
+
+input{
+  border-radius: 0;
+  &:focus{
+    border: solid 2px #F7D358;
+  }
 }
 
 /* Tag-itヘルプメッセージ非表示 */
@@ -189,7 +212,6 @@ header{
   height: 30px;
   width: 100%;
   float: left;
-  border: solid 1px #FBF9F8;
   background-color: #5C584B;
   color: #FBF9F8;
 }
@@ -198,8 +220,8 @@ header{
   width: 30px;
   height: 30px;
   float: left;
-  border: solid 1px #FBF9F8;
-  background-color: #5C584B;
+  background: none;
+  border: none;
   color: #FBF9F8;
   position: absolute;
   right: 0;
@@ -599,10 +621,10 @@ footer{
   }
 
   .footer-search-form-btn{
-    width: 30px;
-    height: 30px;
-    border: solid 1px #FBF9F8;
-    background-color: #5C584B;
+    width: 29px;
+    height: 29px;
+    background: none;
+    border: none;
     color: #FBF9F8;
     float: right;
     position: absolute;
@@ -611,7 +633,7 @@ footer{
   }
 
   .footer-search-form-icon{
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -688,13 +710,11 @@ footer{
   }
 
   .footer-search-form-btn{
-    font-size: 16px;
-    line-height: 16px;
-    width: 20px;
-    height: 20px;
+    font-size: 15px;
+    line-height: 15px;
+    width: 18px;
+    height: 18px;
     float: none;
-    border: solid 1px #FBF9F8;
-    background-color: #5C584B;
     color: #FBF9F8;
   }
 

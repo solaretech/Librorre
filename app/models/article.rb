@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_many :stories
   has_many :article_histories, dependent: :destroy
 
-  validates :title, presence: true, length:{maximum: 50}
+  validates :title, presence: true, length:{maximum: 75}
   validates :mean, presence: true
   validates :cause, presence: true
 

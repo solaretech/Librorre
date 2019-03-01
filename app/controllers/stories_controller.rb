@@ -38,8 +38,8 @@ class StoriesController < ApplicationController
       return
     end
     @story.user_id = current_user.id
+    @category_list = params[:category_list].split(",")
     if @story.save
-      @category_list = params[:category_list].split(",")
       @story.save_story_categories(@category_list)
       redirect_to story_path(@story), notice: 'ストーリーを作成しました。'
     else
@@ -50,6 +50,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
+    @old_story = @story
     # 管理者、もしくは作成者本人以外はアクセス制限
     unless @story.user_id == current_user.id
       unless current_user.admin == true
@@ -58,13 +59,13 @@ class StoriesController < ApplicationController
       end
     end
     # 見出し、本文が一つもない場合、エラー表示
-    unless topics_and_bodies_exists?(@story)
-      flash.now[:alert] = '見出し、または本文が不足しています。'
-      render :edit
-      return
-    end
     @category_list = params[:category_list].split(",")
     if @story.update(story_params)
+      unless topics_and_bodies_exists?(@story)
+        @old_story.save
+        redirect_to edit_story_path(@story), alert: '見出し、または本文が不足しています。'
+        return
+      end
       @story.save_story_categories(@category_list)
       redirect_to story_path(@story), notice: 'ストーリーを更新しました'
     else
