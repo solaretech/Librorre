@@ -60,8 +60,8 @@ class ApplicationController < ActionController::Base
   # ユーザーが表示したストーリーページがすでにVisitedモデルにの履歴ある場合
   # 古い閲覧履歴を削除
   def story_already_visited?
-    if Visited.exists?(story_id: "#{params[:id]}")
-      @old_visited = Visited.find_by(story_id: "#{params[:id]}")
+    if current_user.visiteds.exists?(story_id: "#{params[:id]}")
+      @old_visited = current_user.visiteds.find_by(story_id: "#{params[:id]}")
       @old_visited.destroy
     end
   end
