@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
     @stories = @article.stories.order(:created_at).reverse_order.page(params[:page]).per(10)
     @article_comments = @article.article_comments.reverse
     @article_comment = ArticleComment.new
+    @admin_comment_page = false
   end
 
   def edit

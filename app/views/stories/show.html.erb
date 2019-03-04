@@ -68,7 +68,7 @@
         <div class="content-box-body">
           <div id="sub-content-hide" class="btn btn-sub2">ストーリに戻る</div>
           <div id="story-comment-lists" >
-            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
+            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments, admin_comment_page: @admin_comment_page} %>
           </div>
         </div>
         <div class="content-box-foot">

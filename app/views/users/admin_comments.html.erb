@@ -6,14 +6,14 @@
         <div class="content-box-body col-md-6 col-xs-6">
           <h4>- ディスカッション一覧</h4>
           <div id="article-comment-lists" class="user-admin-comments">
-            <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments} %>
+            <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments, admin_comment_page: @admin_comment_page} %>
           </div>
         </div>
 
         <div class="content-box-body col-md-6 col-xs-6">
           <h4>- トーク一覧</h4>
           <div id="story-comment-lists" class="user-admin-comments">
-            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments} %>
+            <%= render partial: '/story_comments/comments', locals:{story_comments: @story_comments, admin_comment_page: @admin_comment_page} %>
           </div>
         </div>
 

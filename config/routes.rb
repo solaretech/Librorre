@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   get 'comments/' => 'users#admin_comments', as: 'admin_comments'
   patch 'users/d/:id' => 'users#unsubscribe', as: 'unsubscribe_user'
   patch 'articles/ow/:id' => 'article_histories#overwrite', as: 'overwrite_article'
+  delete 'article_comments/:id/admin' => 'article_comments#destroy_from_admin_page', as: 'admin_destroies_article_comment'
+  delete 'story_comments/:id/admin' => 'story_comments#destroy_from_admin_page', as: 'admin_destroies_story_comment'
 end
