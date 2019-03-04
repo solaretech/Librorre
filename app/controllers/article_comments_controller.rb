@@ -8,6 +8,7 @@ class ArticleCommentsController < ApplicationController
     respond_to do |format|
       if @article_comment.save
         @article_comments = @article.article_comments.reverse
+        @article_comment = ArticleComment.new
         format.js { flash.now[:success] = "トークルームへ投稿しました。" }
       else
         flash.now[:alert] = "投稿に失敗しました。"
