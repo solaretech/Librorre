@@ -37,9 +37,9 @@ class ApplicationController < ActionController::Base
   # 閲覧履歴が10件を超えた場合、古い閲覧履歴を削除
   def visited_stories_over_ten_pages?
     visits_stock_limit = 10
-    @visited_stories = current_user.visiteds.reverse
+    @visited_stories = current_user.visiteds.all
     if @visited_stories.count > visits_stock_limit
-      @visited_stories[visits_stock_limit-1].destroy
+      @visited_stories[0].destroy
     end
   end
 
@@ -60,8 +60,8 @@ class ApplicationController < ActionController::Base
   # ユーザーが表示したストーリーページがすでにVisitedモデルにの履歴ある場合
   # 古い閲覧履歴を削除
   def story_already_visited?
-    if Visited.exists?(story_id: "#{params[:id]}")
-      @old_visited = Visited.find_by(story_id: "#{params[:id]}")
+    if current_user.visiteds.exists?(story_id: "#{params[:id]}")
+      @old_visited = current_user.visiteds.find_by(story_id: "#{params[:id]}")
       @old_visited.destroy
     end
   end
