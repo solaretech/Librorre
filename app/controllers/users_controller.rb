@@ -56,6 +56,7 @@ class UsersController < ApplicationController
   def admin_comments
     @article_comments = ArticleComment.order(:created_at).reverse_order.page(params[:page]).per(50).search(params[:search])
     @story_comments = StoryComment.order(:created_at).reverse_order.page(params[:page]).per(50).search(params[:search])
+    @admin_comment_page = true
   end
 
   def update

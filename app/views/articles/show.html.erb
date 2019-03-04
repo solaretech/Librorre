@@ -45,7 +45,7 @@
         <div class="content-box-body">
           <p id="sub-content-hide" class="btn btn-sub2">ディスカッションを終了する</p>
           <div id="article-comment-lists">
-            <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments} %>
+            <%= render partial: '/article_comments/comments', locals:{article_comments: @article_comments, admin_comment_page: @admin_comment_page} %>
           </div>
         </div>
         <div class="content-box-foot">

@@ -20,17 +20,32 @@ class ArticleCommentsController < ApplicationController
   def destroy
     @article_comment = ArticleComment.find(params[:id])
     @article = Article.find(@article_comment.article_id)
-      respond_to do |format|
-        if @article_comment.destroy
-          @article_comments = @article.article_comments.reverse
-          format.html
-          format.js { flash.now[:success] = "投稿を削除しました。" }
-        else
-          flash.now[:alert] = "投稿の削除に失敗しました。"
-          format.html
-          format.js { render 'error'}
-        end
+    respond_to do |format|
+      if @article_comment.destroy
+        @article_comments = @article.article_comments.reverse
+        format.html
+        format.js { flash.now[:success] = "投稿を削除しました。" }
+      else
+        flash.now[:alert] = "投稿の削除に失敗しました。"
+        format.html
+        format.js { render 'error'}
       end
+    end
+  end
+
+  def destroy_from_admin_page
+    @article_comment = ArticleComment.find(params[:id])
+    respond_to do |format|
+      if @article_comment.destroy
+        @article_comments = ArticleComments.all.reverse
+        format.html
+        format.js { flash.now[:success] = "投稿を削除しました。" }
+      else
+        flash.now[:alert] = "投稿の削除に失敗しました。"
+        format.html
+        format.js { render 'error'}
+      end
+    end
   end
 
   private

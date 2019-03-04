@@ -15,6 +15,7 @@ class StoriesController < ApplicationController
     @topics = @story.story_topics                 # 見出し
     @story_comments = @story.story_comments.reverse
     @story_comment = StoryComment.new
+    @admin_comment_page = false                   # 管理者ページからの表示？
     logging_visited_stories(@story)               # 閲覧履歴の記録
   end
 
