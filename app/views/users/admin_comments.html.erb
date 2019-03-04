@@ -21,14 +21,14 @@
           <div id="comment-flash">
             <%= render partial: '/layouts/flash', locals:{flash: flash} %>
           </div>
-          <%= form_tag(admin_comments_path, method: :get, class: 'header-search-form-area') do %>
-          <div class="header-search-form">
-            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力してください' %>
-            <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
-              <img class="header-search-form-icon" src="/images/search.png" alt="検索">
-            <% end %>
-          </div>
-        <% end %>
+          <%= form_tag(admin_comments_path, method: :get, class: 'content-box-search-form-area') do %>
+            <div class="content-box-search-form">
+              <%= text_field_tag :search, '', class: 'content-box-search-form-textfield', placeholder:'キーワードを入力してください' %>
+              <%= button_tag(type: 'submit', class: 'content-box-search-form-btn') do %>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
