@@ -37,9 +37,9 @@ class ApplicationController < ActionController::Base
   # 閲覧履歴が10件を超えた場合、古い閲覧履歴を削除
   def visited_stories_over_ten_pages?
     visits_stock_limit = 10
-    @visited_stories = current_user.visiteds.reverse
+    @visited_stories = current_user.visiteds.all
     if @visited_stories.count > visits_stock_limit
-      @visited_stories[visits_stock_limit-1].destroy
+      @visited_stories[0].destroy
     end
   end
 
