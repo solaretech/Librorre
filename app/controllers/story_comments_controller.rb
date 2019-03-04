@@ -7,6 +7,7 @@ class StoryCommentsController < ApplicationController
     @story_comments = @story.story_comments.reverse
     respond_to do |format|
       if @story_comment.save
+        @story_comment = StoryComment.new
         @story_comments = @story.story_comments.reverse
         format.js { flash.now[:success] = "トークルームへ投稿しました。" }
       else

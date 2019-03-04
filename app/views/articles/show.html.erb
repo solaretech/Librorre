@@ -52,10 +52,9 @@
           <div id="comment-flash">
             <%= render partial: '/layouts/flash', locals:{flash: flash} %>
           </div>
-          <%= form_for([@article, @article_comment], remote: true) do |f| %>
-            <%= f.text_area :comment, class:'foot-textarea' %>
-            <%= f.submit '送信', class:'btn btn-comment-submit', id: 'comment-submit' %>
-          <% end %>
+          <div id="comment-post-field">
+            <%= render partial: 'layouts/post_comment', locals:{parent: @article, parent_comment: @article_comment} %>
+          </div>
         </div>
       </div>
     </div>
