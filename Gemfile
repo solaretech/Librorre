@@ -74,3 +74,4 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem "redcarpet", "~> 2.3.0"
