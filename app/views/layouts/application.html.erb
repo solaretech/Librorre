@@ -26,13 +26,13 @@
     <header class="clearfix">
       <%= link_to(root_path) do %>
         <div class="header-logo">
-          <img class="header-logo-image" src="/images/logo.png">
+          <%= image_tag "/images/logo.png", class:"header-logo-image" %>
         </div>
       <% end %>
       <div class="header-search clearfix">
         <%= form_tag(articles_path, method: :get, class: 'header-search-form-area') do %>
           <div class="header-search-form">
-            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'キーワードを入力' %>
+            <%= text_field_tag :search, '', class: 'header-search-form-textfield', placeholder:'エラ〜メッセージを入力' %>
             <%= button_tag(type: 'submit', class: 'header-search-form-btn') do %>
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <% end %>

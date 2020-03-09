@@ -107,7 +107,7 @@ input{
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  background: url("/images/loading.gif") center center no-repeat;
+  background: image-url("loading.gif") center center no-repeat;
 }
 
 #user-menu > ul{
