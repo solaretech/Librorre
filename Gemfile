@@ -43,6 +43,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'rspec-rails'
+
+  # Capistrano
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -61,6 +67,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
 
 group :production do
   gem 'mysql2'
