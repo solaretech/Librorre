@@ -6,7 +6,7 @@
         <h2 class="content-box-head user-info">利用者情報</h2>
         <div class="content-box-body user-info">
           <div>
-            <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback:"/images/no_image.png", size: '200' %>
+            <%= attachment_image_tag @user, :image, fallback:"no_image.png", size: '200x200' %>
           </div>
           <h3><%= @user.name %></h3>
           <!-- 利用者本人か、管理者のみメールアドレス表示 -->

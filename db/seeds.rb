@@ -11,6 +11,6 @@ User.create(
   name: "管理者",
   email: "admin@librorre.com",
   password: 'admin123',
-  password_confirmation: 'admin123'
+  password_confirmation: 'admin123',
   admin: true
 )
