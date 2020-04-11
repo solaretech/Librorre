@@ -60,18 +60,6 @@ ActiveRecord::Schema.define(version: 2019_03_20_073104) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.integer "from_id"
-    t.integer "to_id"
-    t.integer "room_id"
-    t.integer "article_id"
-    t.integer "story_id"
-    t.text "comment"
-    t.boolean "checked", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stories", force: :cascade do |t|
     t.string "title"
     t.integer "article_id"
