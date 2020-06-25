@@ -1,24 +1,23 @@
-# README
+# LiBRORRE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+− Railsのエラー文の意味を知り、それに対する解決策を共有するサイト
 
-* Ruby version
+### テーマを選んだ理由
+− Railsを学習する中で、度重なるエラーに悩まされることが多く、自分なりにWeb上でエラー文を検索するなどして解決策を模索し続けてきたが
+  基本的に自分の環境で発生しているエラーは自分だけのものであり、Web上に点在する記事を組み合わせて試行する必要があります。
+- せめてエラー文を中心に、エラー文発生の前後関係が集約されていれば、エラー解決の緒も探しやすくなるのではないかと考え、このテーマを選びました。
 
-* System dependencies
+### ターゲットユーザ
+− Railsを学習している人
 
-* Configuration
+### 主な利用シーン
+− Railsのエラーの解決糸口が見つからずに苦労している人
+- Railsのエラーの解決策を共有したい人
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 主な機能
+- エラー文の意味や発生原因の投稿  
+- エラー文の発生前後の様子や解決までの方法を「ストーリー」としてまとめ、エラー文の項目と紐づけて閲覧する機能
+- 投稿に対するコメント、ストック機能
